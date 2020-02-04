@@ -1,0 +1,460 @@
+﻿@model CondourApp.Models.Edmx.Application
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Submit Application</h2>
+
+@*@using (Html.BeginForm("EditaApplicationUser", "Admin", FormMethod.Post, new { id = "LoginForm", data_toggle = "validator", data_parsley_validate = "novalidate" }))*@
+@*{*@
+    <div class="row">
+        <div class="col-md-4">
+            <div class="p-20">
+
+                @Html.HiddenFor(m => m.ApplicationId)
+                <div class="form-group">
+                    <label>Bank Name</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                   @Html.DisplayFor(m => m.BankId)           @*@Html.DropDownList("BankId", ViewBag.Banks as SelectList, new { @class = "form-control" })*@
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>Location</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.LocationId)
+                    @*@Html.DropDownList("LocationId", ViewBag.Locations as SelectList, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label>Product</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.Product)
+                    @*@Html.DropDownList("ProductId", ViewBag.Products as SelectList, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label>Applicant's Name</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.ApplicantsName, new { @class = "form-control", required = "required", parsley_trigger = "change" })
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Employment Status </label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+
+                    @Html.DisplayFor(m => m.EmployeStatus, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Office Address</label>
+                    @*<input type="text" placeholder="" class="form-control">*@
+                    @*<textarea class="form-control" rows="5"></textarea>*@
+                    @Html.DisplayFor(m => m.OfficeName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Dealer/ DSA/ DST Name</label>
+                    @Html.DisplayFor(m => m.DealerDsaDstName, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Date Of Pickup (DD/MMM/YY)</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @*@Html.DisplayFor(m=>m.DOB, new { @class = "form-control", required = "required" })*@
+                    @Html.DisplayFor(m => m.DateOfPickup, new { @class = "form-control", required = "required", placeholder = "dd/mm/yyyy", id = "txtDateOfPickup" })
+                </div>
+                <div class="form-group">
+                    <label>Pick Up Documents</label>
+                    @Html.DisplayFor(m => m.PickUpDocuments, new { @class = "form-control" })
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Status </label>
+                    @Html.DisplayFor(m => m.Status, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Suspect Reason - 2</label>
+                    @Html.DisplayFor(m => m.SuspectReason2, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Other KYC</label>
+                    @Html.DisplayFor(m => m.OtherKYC, new { @class = "form-control" })
+
+                </div>
+                @*<div class="form-group">
+                        <label>Bank Name</label>
+                        @Html.DropDownList("BankId", ViewBag.Banks as SelectList, new { @class = "form-control" })
+                    </div>*@
+                <div class="form-group">
+                    <label>BV</label>
+                    @Html.DisplayFor(m => m.BV, new { @class = "form-control" })
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Business Proof</label>
+                    @Html.DisplayFor(m => m.BusinessProof, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Salary Slip</label>
+                    @Html.DisplayFor(m => m.SalarySlip, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Ration Card</label>
+                    @Html.DisplayFor(m => m.RationCard, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Utility Bill</label>
+                    @Html.DisplayFor(m => m.UtilityBill, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Bank Statement</label>
+                    @Html.DisplayFor(m => m.BankStatement, new { @class = "form-control" })
+                </div>
+                <div class="form-group m-b-0">
+                    <label>F-16</label>
+                    @Html.DisplayFor(m => m.F16, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Sale Deed/ AgreementsSale Deed/ Agreements</label>
+                    @Html.DisplayFor(m => m.SaleDeed, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Property Registration </label>
+                    @Html.DisplayFor(m => m.PropertyRegistrationCheck, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Sanction Plan</label>
+                    @Html.DisplayFor(m => m.SanactionPlan, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>OCR (Own Contribution Receipt)</label>
+                    @Html.DisplayFor(m => m.OCR, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>ULCC (Urban Land Ceiling)</label>
+                    @Html.DisplayFor(m => m.ULLC, new { @class = "form-control" })
+
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-md-4">
+            <div class="p-20">
+
+                <div class="form-group">
+                    <label>Sample Month</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.SampleMonth, new { @class = "form-control", required = "required", placeholder = "dd/mm/yyyy", id = "txtSampleMonth" })
+                </div>
+                <div class="form-group">
+                    <label>Branch Name</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.BranchId, new { @class = "form-control" })
+                    @*@Html.DropDownList("BranchId", ViewBag.Branches as SelectList, new { @class = "form-control" })*@
+                </div>
+                <div class="form-group">
+                    <label>Scheme</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.Scheme, new { @class = "form-control", required = "required" })
+                </div>
+                <div class="form-group">
+                    <label>DOB (DD/MMM/YY)</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.DOB, new { @class = "form-control", placeholder = "dd/mm/yyyy", id = "txtDob" })
+
+                    @*<div class="input-group-append">
+                            <span class="input-group-text"><i class="ti-calendar"></i></span>
+                        </div>*@
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Applicant Residence Address</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @*<textarea class="form-control" rows="5"></textarea>*@
+                    @Html.DisplayFor(m => m.ApplicantResidenceAddress, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>Contact No</label>
+                    @Html.DisplayFor(m => m.ContactNo, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>SO Name</label>
+                    @Html.DisplayFor(m => m.SOName, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Date Of Reporting (DD/MMM/YY)</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.DateOfReporting, new { @class = "form-control", placeholder = "dd/mm/yyyy", id = "txtDateOfReporting" })
+                </div>
+                <div class="form-group">
+                    <label>Mandatory / Trigger</label>
+                    @Html.DisplayFor(m => m.MandatoryTrigger, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Remarks </label>
+                    @Html.DisplayFor(m => m.Remarks, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    <label>KYC Details  - ID Proof</label>
+                    @Html.DisplayFor(m => m.KYCDetailsIdProof, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Property Address Visit</label>
+                    @Html.DisplayFor(m => m.PropertyAddressVisit, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Pan Card</label>
+                    @Html.DisplayFor(m => m.PanCard, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>DL</label>
+                    @Html.DisplayFor(m => m.DL, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Voters Id</label>
+                    @Html.DisplayFor(m => m.VoterId, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Bill</label>
+                    @Html.DisplayFor(m => m.PhoneBill, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Roc/ Vat</label>
+                    @Html.DisplayFor(m => m.RocVat, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Financials</label>
+                    @Html.DisplayFor(m => m.Financial, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Rent Agreement</label>
+                    @Html.DisplayFor(m => m.RentAgreement, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Stamp DutyConfirmation</label>
+                    @Html.DisplayFor(m => m.StampDutyConfirmation, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>CommencementCertificate</label>
+                    @Html.DisplayFor(m => m.CommencementCertificates, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Roc/ Vat</label>
+                    @Html.DisplayFor(m => m.RocVat, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Builder Noc</label>
+                    @Html.DisplayFor(m => m.BuilderNoc, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Layout Copy</label>
+                    @Html.DisplayFor(m => m.LayoutCopy, new { @class = "form-control" })
+
+                </div>
+
+
+            </div>
+        </div><!-- end col -->
+
+        <div class="col-md-4">
+            <div class="p-20">
+
+                <div class="form-group">
+                    <label>New / Rework File</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.Region, new { @class = "form-control" })
+                    @*@Html.DropDownListFor(model => model.Region, new List<SelectListItem> {
+                                            new SelectListItem { Text = "New", Value = "New"},
+                                            new SelectListItem { Text = "Rework", Value = "Rework"}},
+                                            new { @class = "form-control", required = "required" })*@
+                </div>
+                <div class="form-group">
+                    <label>Region</label>
+                    @*<input type="text" placeholder="" data-mask="(999) 999-9999" class="form-control">*@
+                    @Html.DisplayFor(m => m.FileType, new { @class = "form-control" })
+
+                    @*@Html.DropDownListFor(model => model.FileType, new List<SelectListItem> {
+                                            new SelectListItem { Text = "South", Value = "1"},
+                                            new SelectListItem { Text = "North", Value = "2"},
+                                            new SelectListItem { Text = "East", Value = "3" },
+                                            new SelectListItem { Text = "West", Value = "4" } },
+                                            new { @class = "form-control", required = "required" })*@
+                </div>
+                <div class="form-group">
+                    <label>Asset Details</label>
+                    @*<input type="text" placeholder="" data-mask="$ 999,999,999.99" class="form-control">*@
+                    @Html.DisplayFor(m => m.AssetDetails, new { @class = "form-control", required = "required" })
+                </div>
+                <div class="form-group">
+                    <label>TU ID</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.TUID, new { @class = "form-control", required = "required" })
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Application Reference Number</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.ApplicationNum, new { @class = "form-control", required = "required" })
+                </div>
+
+                <div class="form-group">
+                    <label>Office Name</label>
+                    @Html.DisplayFor(m => m.OfficeName, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Loan Amount</label>
+                    @Html.DisplayFor(m => m.LoanAmount, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Field Executive Name</label>
+                    @Html.DisplayFor(m => m.FieldExectiveName, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>TAT(Date PickuptoDate Reporting)</label>
+                    <input type="text" placeholder="" class="form-control">
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Referred By</label>
+                    @Html.DisplayFor(m => m.ReferredById, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>Suspect Reason - 1</label>
+                    @Html.DisplayFor(m => m.SuspectReason1, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>KYC Details  - Add Proof</label>
+                    @Html.DisplayFor(m => m.KYCDetailsAddProof, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>KYC Details  - Co-Applicant Add Proof</label>
+                    @Html.DisplayFor(m => m.KYCDetailsIdProof, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>RV</label>
+                    @Html.DisplayFor(m => m.RV, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>Resi Proof</label>
+                    @Html.DisplayFor(m => m.ResiProof, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>Passport</label>
+                    @Html.DisplayFor(m => m.Passport, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Aadhar Card</label>
+                    @Html.DisplayFor(m => m.AadharCard, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Bank Statement</label>
+                    @Html.DisplayFor(m => m.BankStatement, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label>Sales Tax Registration Receipt</label>
+                    @Html.DisplayFor(m => m.SalesTaxSlip, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group m-b-0">
+                    <label>RC Copy</label>
+                    @Html.DisplayFor(m => m.RCCopy, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group">
+                    <label>Encumbrance Certificate </label>
+                    @Html.DisplayFor(m => m.EncumbranceCertificate, new { @class = "form-control" })
+              
+
+                </div>
+                <div class="form-group">
+                    <label>Index Ii</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.IndexLi, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Society Noc</label>
+                    @*<input type="text" placeholder=""  class="form-control">*@
+                    @Html.DisplayFor(m => m.SocityNoc, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Count Of Activity</label>
+                    @*<input type="text" placeholder=""   class="form-control">*@
+                    @Html.DisplayFor(m => m.AccountActitvity, new { @class = "form-control" })
+                </div>
+               @Html.ActionLink("Back To Index","GetAllApplicationDetails", "Admin")
+
+            </div>
+        </div><!-- end col -->
+    </div>
+
+}
+@section styles{
+    <link href="~/Content/App1/assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+}
+
+@section scripts{
+    <script type="text/javascript" src="~/Content/App1/assets/plugins/parsleyjs/dist/parsley.min.js"></script>
+    <script src="~/Content/App1/assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+            $(document).ready(function() {
+                $('form').parsley();
+                $('#txtSampleMonth').datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    format: "dd/mm/yyyy"
+                });
+                $('#txtDob').datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    format: "dd/mm/yyyy"
+                });
+                $('#txtDateOfPickup').datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    format: "dd/mm/yyyy"
+                });
+                $('#txtDateOfReporting').datepicker({
+                    autoclose: true,
+                    todayHighlight: true,
+                    format: "dd/mm/yyyy"
+                });
+            });
+    </script>
+}
+
+

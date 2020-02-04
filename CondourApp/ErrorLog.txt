@@ -1,0 +1,34 @@
+10/4/2018 3:52:18 PM : Error at crawling IEM 
+CondourApp ; Object reference not set to an instance of an object.
+10/4/2018 6:49:03 PM : Error at crawling IEM 
+mscorlib ; Index was out of range. Must be non-negative and less than the size of the collection.
+Parameter name: index
+10/4/2018 6:55:59 PM : Error at crawling IEM 
+CondourApp ; Object reference not set to an instance of an object.
+18/11/2018 2:09:08 AM : At Get User
+EntityFramework ; The number of primary key values passed must match number of primary key values defined on the entity.
+Parameter name: keyValues
+18/11/2018 2:39:33 AM : At Get User
+EntityFramework ; The number of primary key values passed must match number of primary key values defined on the entity.
+Parameter name: keyValues
+18/11/2018 2:48:51 AM : At Get User
+EntityFramework ; The number of primary key values passed must match number of primary key values defined on the entity.
+Parameter name: keyValues
+18/11/2018 2:53:36 AM : At Get User
+EntityFramework ; The number of primary key values passed must match number of primary key values defined on the entity.
+Parameter name: keyValues
+18/11/2018 2:54:48 AM : At Get User
+EntityFramework ; The number of primary key values passed must match number of primary key values defined on the entity.
+Parameter name: keyValues
+18/11/2018 3:02:36 AM : At IsValidUser UserName- suresh
+EntityFramework ; An error occurred while preparing the command definition. See the inner exception for details.
+18/11/2018 3:02:36 AM : EntityFramework ; 
+Condour.msl(91,10) : error 3024: Problem in mapping fragments starting at line 91:Must specify mapping for all key properties (Users.UserId, Users.UsesrName, Users.RoleId, Users.Password) of the EntitySet Users.
+
+18/11/2018 3:02:56 AM : At IsValidUser UserName- suresh
+EntityFramework ; An error occurred while preparing the command definition. See the inner exception for details.
+18/11/2018 3:02:56 AM : EntityFramework ; 
+Condour.msl(91,10) : error 3024: Problem in mapping fragments starting at line 91:Must specify mapping for all key properties (Users.UserId, Users.UsesrName, Users.RoleId, Users.Password) of the EntitySet Users.
+
+18/11/2018 2:50:51 PM : At IsValidUser UserName- Madhubabu
+EntityFramework ; No connection string named 'CondourEntities' could be found in the application config file.

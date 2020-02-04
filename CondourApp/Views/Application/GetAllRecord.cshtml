@@ -1,0 +1,441 @@
+﻿@model IEnumerable<CondourApp.Application>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SampleMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BranchName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Scheme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetDetails)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DOB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicantResidenceAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfficeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoanAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DealerDsaDstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FieldExectiveName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfPickup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfReporting)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PickUpDocuments)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MandatoryTrigger)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReferredBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuspectReason1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuspectReason2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KYCDetailsIdProof)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KYCDetailsAddProof)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OtherKYC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankName2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankAccountNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyAddressVisit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResiProof)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BusinessProof)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PanCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalarySlip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Passport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RationCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VoterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AadharCard)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UtilityBill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneBill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BankStatement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ITR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RocVat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTaxSlip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.F16)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Financial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RCCopy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaleDeed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentAgreement)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EncumbranceCertificate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PropertyRegistrationCheck)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StampDutyConfirmation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanactionPlan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CommencementCertificates)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndexLi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OCR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BuilderNoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SocityNoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ULLC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LayoutCopy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccountActitvity)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SampleMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BranchName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Region)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Scheme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetDetails)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TUID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicantResidenceAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OfficeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContactNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DealerDsaDstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FieldExectiveName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfPickup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateOfReporting)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PickUpDocuments)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MandatoryTrigger)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReferredBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuspectReason1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuspectReason2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KYCDetailsIdProof)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KYCDetailsAddProof)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OtherKYC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankName2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankAccountNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyAddressVisit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResiProof)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessProof)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PanCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalarySlip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Passport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RationCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VoterId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AadharCard)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UtilityBill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneBill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BankStatement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ITR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RocVat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTaxSlip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.F16)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Financial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RCCopy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SaleDeed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentAgreement)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EncumbranceCertificate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PropertyRegistrationCheck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StampDutyConfirmation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanactionPlan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommencementCertificates)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IndexLi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OCR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BuilderNoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SocityNoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ULLC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LayoutCopy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccountActitvity)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "EditData", new { id=item.ApplicationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ApplicationId }) |
+            @Html.ActionLink("Delete", "DeleteApllication", new { id=item.ApplicationId })
+        </td>
+    </tr>
+}
+
+</table>

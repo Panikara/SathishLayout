@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "BulkUpload";
+}
+
+<h2>BulkUpload</h2>
+
+@using (Html.BeginForm("BulkUpload", "Maker", FormMethod.Post, new { data_toggle = "validator", @enctype = "multipart/form-data" }))
+{
+    <input type="file"  id="btnUpload" name="file" />
+
+    <input type="submit"  value="Upload"/>
+}

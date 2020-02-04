@@ -1,0 +1,1005 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ConsultancyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Applications">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationNum" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BankId" Type="int" />
+          <Property Name="SampleMonth" Type="date" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="RegionId" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="Scheme" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AssetDetails" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ApplicantsName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ReferredById" Type="int" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="TUID" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="EmployeStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ApplicantResidenceAddress" Type="nvarchar" MaxLength="250" />
+          <Property Name="OfficeName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ContactNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="LoanAmount" Type="bigint" />
+          <Property Name="DealerDsaDstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="SOName" Type="nvarchar" MaxLength="20" />
+          <Property Name="FieldExectiveName" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateOfPickup" Type="date" />
+          <Property Name="DateOfReporting" Type="date" />
+          <Property Name="TAT" Type="int" />
+          <Property Name="PickUpDocuments" Type="nvarchar" MaxLength="250" />
+          <Property Name="MandatoryTrigger" Type="nvarchar" MaxLength="20" />
+          <Property Name="StatusId" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+          <Property Name="SuspectReason1" Type="nvarchar" MaxLength="50" />
+          <Property Name="SuspectReason2" Type="nvarchar" MaxLength="50" />
+          <Property Name="KYCDetailsIdProof" Type="nvarchar" MaxLength="20" />
+          <Property Name="KYCDetailsAddProof" Type="nvarchar" MaxLength="20" />
+          <Property Name="OtherKYC" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserBankName" Type="nvarchar" MaxLength="20" />
+          <Property Name="BankAccountNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="RV" Type="int" />
+          <Property Name="BV" Type="int" />
+          <Property Name="PropertyAddressVisit" Type="int" />
+          <Property Name="ResiProof" Type="int" />
+          <Property Name="BusinessProof" Type="int" />
+          <Property Name="PanCard" Type="int" />
+          <Property Name="SalarySlip" Type="int" />
+          <Property Name="DL" Type="int" />
+          <Property Name="Passport" Type="int" />
+          <Property Name="RationCard" Type="int" />
+          <Property Name="VoterId" Type="int" />
+          <Property Name="AadharCard" Type="int" />
+          <Property Name="UtilityBill" Type="int" />
+          <Property Name="PhoneBill" Type="int" />
+          <Property Name="BankStatement" Type="int" />
+          <Property Name="ITR" Type="int" />
+          <Property Name="RocVat" Type="int" />
+          <Property Name="SalesTaxSlip" Type="int" />
+          <Property Name="F16" Type="int" />
+          <Property Name="Financial" Type="int" />
+          <Property Name="RCCopy" Type="int" />
+          <Property Name="SaleDeed" Type="int" />
+          <Property Name="RentAgreement" Type="int" />
+          <Property Name="EncumbranceCertificate" Type="int" />
+          <Property Name="PropertyRegistrationCheck" Type="int" />
+          <Property Name="StampDutyConfirmation" Type="int" />
+          <Property Name="SanactionPlan" Type="int" />
+          <Property Name="CommencementCertificates" Type="int" />
+          <Property Name="IndexLi" Type="int" />
+          <Property Name="OCR" Type="int" />
+          <Property Name="BuilderNoc" Type="int" />
+          <Property Name="SocityNoc" Type="int" />
+          <Property Name="ULLC" Type="int" />
+          <Property Name="LayoutCopy" Type="int" />
+          <Property Name="AccountActitvity" Type="int" />
+          <Property Name="ReportSent" Type="nvarchar" MaxLength="10" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="int" Nullable="false" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LocationId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmailConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Mails" Type="varchar(max)" />
+          <Property Name="BankId" Type="int" />
+        </EntityType>
+        <EntityType Name="EmploymentStatus">
+          <Key>
+            <PropertyRef Name="EmpStatusId" />
+          </Key>
+          <Property Name="EmpStatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpStatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Location" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReferredBy">
+          <Key>
+            <PropertyRef Name="ReferredById" />
+          </Key>
+          <Property Name="ReferredById" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReferredBy" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SuspectReason">
+          <Key>
+            <PropertyRef Name="ReasonId" />
+          </Key>
+          <Property Name="ReasonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SuspectReason" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Email__BankId__2F10007B">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="EmailConfig" Type="Self.EmailConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="BankId" />
+            </Principal>
+            <Dependent Role="EmailConfig">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppBank">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="BankId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Applications_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppLocation">
+          <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppProduct">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppRefferedBy">
+          <End Role="ReferredBy" Type="Self.ReferredBy" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReferredBy">
+              <PropertyRef Name="ReferredById" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="ReferredById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppRegion">
+          <End Role="Region" Type="Self.Region" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppStatus">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Applications">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BranchLoc">
+          <End Role="Location" Type="Self.Location" Multiplicity="1" />
+          <End Role="Branch" Type="Self.Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocRegion">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Location" Type="Self.Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConsultancyModelStoreContainer">
+          <EntitySet Name="Applications" EntityType="Self.Applications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailConfig" EntityType="Self.EmailConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmploymentStatus" EntityType="Self.EmploymentStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferredBy" EntityType="Self.ReferredBy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuspectReason" EntityType="Self.SuspectReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Email__BankId__2F10007B" Association="Self.FK__Email__BankId__2F10007B">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="EmailConfig" EntitySet="EmailConfig" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppBank" Association="Self.FK_AppBank">
+            <End Role="Bank" EntitySet="Bank" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Applications_Product" Association="Self.FK_Applications_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppLocation" Association="Self.FK_AppLocation">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppProduct" Association="Self.FK_AppProduct">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppRefferedBy" Association="Self.FK_AppRefferedBy">
+            <End Role="ReferredBy" EntitySet="ReferredBy" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppRegion" Association="Self.FK_AppRegion">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppStatus" Association="Self.FK_AppStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch" Association="Self.FK_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Applications" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchLoc" Association="Self.FK_BranchLoc">
+            <End Role="Location" EntitySet="Location" />
+            <End Role="Branch" EntitySet="Branch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocRegion" Association="Self.FK_LocRegion">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Location" EntitySet="Location" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ConsultancyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bank">
+          <Key>
+            <PropertyRef Name="BankId" />
+          </Key>
+          <Property Name="BankId" Type="Int32" Nullable="false" />
+          <Property Name="BankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EmailConfigs" Relationship="Self.FK__Email__BankId__2F10007B" FromRole="Bank" ToRole="EmailConfig" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_AppBank" FromRole="Bank" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LocationId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Location" Relationship="ConsultancyModel.FK_BranchLoc" FromRole="Branch" ToRole="Location" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_Branch" FromRole="Branch" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="EmailConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Mails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BankId" Type="Int32" />
+          <NavigationProperty Name="Bank" Relationship="Self.FK__Email__BankId__2F10007B" FromRole="EmailConfig" ToRole="Bank" />
+        </EntityType>
+        <EntityType Name="EmploymentStatu">
+          <Key>
+            <PropertyRef Name="EmpStatusId" />
+          </Key>
+          <Property Name="EmpStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationId" />
+          </Key>
+          <Property Name="LocationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Location1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegionId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Branches" Relationship="ConsultancyModel.FK_BranchLoc" FromRole="Location" ToRole="Branch" />
+          <NavigationProperty Name="Region" Relationship="ConsultancyModel.FK_LocRegion" FromRole="Location" ToRole="Region" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_AppLocation" FromRole="Location" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_Applications_Product" FromRole="Product" ToRole="Application" />
+          <NavigationProperty Name="Applications1" Relationship="ConsultancyModel.FK_AppProduct" FromRole="Product" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="ReferredBy">
+          <Key>
+            <PropertyRef Name="ReferredById" />
+          </Key>
+          <Property Name="ReferredById" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReferredBy1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_AppRefferedBy" FromRole="ReferredBy" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Locations" Relationship="ConsultancyModel.FK_LocRegion" FromRole="Region" ToRole="Location" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_AppRegion" FromRole="Region" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Applications" Relationship="ConsultancyModel.FK_AppStatus" FromRole="Status" ToRole="Application" />
+        </EntityType>
+        <EntityType Name="SuspectReason">
+          <Key>
+            <PropertyRef Name="ReasonId" />
+          </Key>
+          <Property Name="ReasonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuspectReason1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Guid" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RoleId" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__Email__BankId__2F10007B">
+          <End Role="Bank" Type="Self.Bank" Multiplicity="0..1" />
+          <End Role="EmailConfig" Type="Self.EmailConfig" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="BankId" />
+            </Principal>
+            <Dependent Role="EmailConfig">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConsultancyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Banks" EntityType="Self.Bank" />
+          <EntitySet Name="Branches" EntityType="Self.Branch" />
+          <EntitySet Name="EmailConfigs" EntityType="Self.EmailConfig" />
+          <EntitySet Name="EmploymentStatus" EntityType="Self.EmploymentStatu" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ReferredBies" EntityType="Self.ReferredBy" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="SuspectReasons" EntityType="Self.SuspectReason" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Email__BankId__2F10007B" Association="Self.FK__Email__BankId__2F10007B">
+            <End Role="Bank" EntitySet="Banks" />
+            <End Role="EmailConfig" EntitySet="EmailConfigs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BranchLoc" Association="ConsultancyModel.FK_BranchLoc">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Branch" EntitySet="Branches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LocRegion" Association="ConsultancyModel.FK_LocRegion">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Location" EntitySet="Locations" />
+          </AssociationSet>
+          <EntitySet Name="Applications" EntityType="ConsultancyModel.Application" />
+          <AssociationSet Name="FK_AppBank" Association="ConsultancyModel.FK_AppBank">
+            <End Role="Bank" EntitySet="Banks" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Applications_Product" Association="ConsultancyModel.FK_Applications_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppLocation" Association="ConsultancyModel.FK_AppLocation">
+            <End Role="Location" EntitySet="Locations" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppProduct" Association="ConsultancyModel.FK_AppProduct">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppRefferedBy" Association="ConsultancyModel.FK_AppRefferedBy">
+            <End Role="ReferredBy" EntitySet="ReferredBies" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppRegion" Association="ConsultancyModel.FK_AppRegion">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AppStatus" Association="ConsultancyModel.FK_AppStatus">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Branch" Association="ConsultancyModel.FK_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Application" EntitySet="Applications" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_BranchLoc">
+          <End Type="ConsultancyModel.Location" Role="Location" Multiplicity="1" />
+          <End Type="ConsultancyModel.Branch" Role="Branch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="Branch">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LocRegion">
+          <End Type="ConsultancyModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="ConsultancyModel.Location" Role="Location" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Location">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Application">
+          <Key>
+            <PropertyRef Name="ApplicationId" />
+          </Key>
+          <Property Name="ApplicationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationNum" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankId" Type="Int32" />
+          <Property Name="SampleMonth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="FileType" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LocationId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="RegionId" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="Scheme" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AssetDetails" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicantsName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ReferredById" Type="Int32" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TUID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeStatus" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicantResidenceAddress" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OfficeName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ContactNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LoanAmount" Type="Int64" />
+          <Property Name="DealerDsaDstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SOName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FieldExectiveName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateOfPickup" Type="DateTime" Precision="0" />
+          <Property Name="DateOfReporting" Type="DateTime" Precision="0" />
+          <Property Name="TAT" Type="Int32" />
+          <Property Name="PickUpDocuments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MandatoryTrigger" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StatusId" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SuspectReason1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SuspectReason2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KYCDetailsIdProof" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="KYCDetailsAddProof" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="OtherKYC" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserBankName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RV" Type="Int32" />
+          <Property Name="BV" Type="Int32" />
+          <Property Name="PropertyAddressVisit" Type="Int32" />
+          <Property Name="ResiProof" Type="Int32" />
+          <Property Name="BusinessProof" Type="Int32" />
+          <Property Name="PanCard" Type="Int32" />
+          <Property Name="SalarySlip" Type="Int32" />
+          <Property Name="DL" Type="Int32" />
+          <Property Name="Passport" Type="Int32" />
+          <Property Name="RationCard" Type="Int32" />
+          <Property Name="VoterId" Type="Int32" />
+          <Property Name="AadharCard" Type="Int32" />
+          <Property Name="UtilityBill" Type="Int32" />
+          <Property Name="PhoneBill" Type="Int32" />
+          <Property Name="BankStatement" Type="Int32" />
+          <Property Name="ITR" Type="Int32" />
+          <Property Name="RocVat" Type="Int32" />
+          <Property Name="SalesTaxSlip" Type="Int32" />
+          <Property Name="F16" Type="Int32" />
+          <Property Name="Financial" Type="Int32" />
+          <Property Name="RCCopy" Type="Int32" />
+          <Property Name="SaleDeed" Type="Int32" />
+          <Property Name="RentAgreement" Type="Int32" />
+          <Property Name="EncumbranceCertificate" Type="Int32" />
+          <Property Name="PropertyRegistrationCheck" Type="Int32" />
+          <Property Name="StampDutyConfirmation" Type="Int32" />
+          <Property Name="SanactionPlan" Type="Int32" />
+          <Property Name="CommencementCertificates" Type="Int32" />
+          <Property Name="IndexLi" Type="Int32" />
+          <Property Name="OCR" Type="Int32" />
+          <Property Name="BuilderNoc" Type="Int32" />
+          <Property Name="SocityNoc" Type="Int32" />
+          <Property Name="ULLC" Type="Int32" />
+          <Property Name="LayoutCopy" Type="Int32" />
+          <Property Name="AccountActitvity" Type="Int32" />
+          <Property Name="ReportSent" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bank" Relationship="ConsultancyModel.FK_AppBank" FromRole="Application" ToRole="Bank" />
+          <NavigationProperty Name="Product" Relationship="ConsultancyModel.FK_Applications_Product" FromRole="Application" ToRole="Product" />
+          <NavigationProperty Name="Location" Relationship="ConsultancyModel.FK_AppLocation" FromRole="Application" ToRole="Location" />
+          <NavigationProperty Name="Product1" Relationship="ConsultancyModel.FK_AppProduct" FromRole="Application" ToRole="Product" />
+          <NavigationProperty Name="ReferredBy" Relationship="ConsultancyModel.FK_AppRefferedBy" FromRole="Application" ToRole="ReferredBy" />
+          <NavigationProperty Name="Region" Relationship="ConsultancyModel.FK_AppRegion" FromRole="Application" ToRole="Region" />
+          <NavigationProperty Name="Status" Relationship="ConsultancyModel.FK_AppStatus" FromRole="Application" ToRole="Status" />
+          <NavigationProperty Name="Branch" Relationship="ConsultancyModel.FK_Branch" FromRole="Application" ToRole="Branch" />
+        </EntityType>
+        <Association Name="FK_AppBank">
+          <End Type="ConsultancyModel.Bank" Role="Bank" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bank">
+              <PropertyRef Name="BankId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="BankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Applications_Product">
+          <End Type="ConsultancyModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppLocation">
+          <End Type="ConsultancyModel.Location" Role="Location" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Location">
+              <PropertyRef Name="LocationId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="LocationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppProduct">
+          <End Type="ConsultancyModel.Product" Role="Product" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppRefferedBy">
+          <End Type="ConsultancyModel.ReferredBy" Role="ReferredBy" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReferredBy">
+              <PropertyRef Name="ReferredById" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="ReferredById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppRegion">
+          <End Type="ConsultancyModel.Region" Role="Region" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AppStatus">
+          <End Type="ConsultancyModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="StatusId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="StatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Branch">
+          <End Type="ConsultancyModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="ConsultancyModel.Application" Role="Application" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Application">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ConsultancyModelStoreContainer" CdmEntityContainer="ConsultancyEntities">
+          <EntitySetMapping Name="Banks">
+            <EntityTypeMapping TypeName="ConsultancyModel.Bank">
+              <MappingFragment StoreEntitySet="Bank">
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="ConsultancyModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailConfigs">
+            <EntityTypeMapping TypeName="ConsultancyModel.EmailConfig">
+              <MappingFragment StoreEntitySet="EmailConfig">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Mails" ColumnName="Mails" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmploymentStatus">
+            <EntityTypeMapping TypeName="ConsultancyModel.EmploymentStatu">
+              <MappingFragment StoreEntitySet="EmploymentStatus">
+                <ScalarProperty Name="EmpStatusId" ColumnName="EmpStatusId" />
+                <ScalarProperty Name="EmpStatus" ColumnName="EmpStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="ConsultancyModel.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="Location1" ColumnName="Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ConsultancyModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Product1" ColumnName="Product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferredBies">
+            <EntityTypeMapping TypeName="ConsultancyModel.ReferredBy">
+              <MappingFragment StoreEntitySet="ReferredBy">
+                <ScalarProperty Name="ReferredById" ColumnName="ReferredById" />
+                <ScalarProperty Name="ReferredBy1" ColumnName="ReferredBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="ConsultancyModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="Region1" ColumnName="Region" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ConsultancyModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Role1" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="ConsultancyModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Status1" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuspectReasons">
+            <EntityTypeMapping TypeName="ConsultancyModel.SuspectReason">
+              <MappingFragment StoreEntitySet="SuspectReason">
+                <ScalarProperty Name="ReasonId" ColumnName="ReasonId" />
+                <ScalarProperty Name="SuspectReason1" ColumnName="SuspectReason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ConsultancyModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Applications">
+            <EntityTypeMapping TypeName="ConsultancyModel.Application">
+              <MappingFragment StoreEntitySet="Applications">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ReportSent" ColumnName="ReportSent" />
+                <ScalarProperty Name="AccountActitvity" ColumnName="AccountActitvity" />
+                <ScalarProperty Name="LayoutCopy" ColumnName="LayoutCopy" />
+                <ScalarProperty Name="ULLC" ColumnName="ULLC" />
+                <ScalarProperty Name="SocityNoc" ColumnName="SocityNoc" />
+                <ScalarProperty Name="BuilderNoc" ColumnName="BuilderNoc" />
+                <ScalarProperty Name="OCR" ColumnName="OCR" />
+                <ScalarProperty Name="IndexLi" ColumnName="IndexLi" />
+                <ScalarProperty Name="CommencementCertificates" ColumnName="CommencementCertificates" />
+                <ScalarProperty Name="SanactionPlan" ColumnName="SanactionPlan" />
+                <ScalarProperty Name="StampDutyConfirmation" ColumnName="StampDutyConfirmation" />
+                <ScalarProperty Name="PropertyRegistrationCheck" ColumnName="PropertyRegistrationCheck" />
+                <ScalarProperty Name="EncumbranceCertificate" ColumnName="EncumbranceCertificate" />
+                <ScalarProperty Name="RentAgreement" ColumnName="RentAgreement" />
+                <ScalarProperty Name="SaleDeed" ColumnName="SaleDeed" />
+                <ScalarProperty Name="RCCopy" ColumnName="RCCopy" />
+                <ScalarProperty Name="Financial" ColumnName="Financial" />
+                <ScalarProperty Name="F16" ColumnName="F16" />
+                <ScalarProperty Name="SalesTaxSlip" ColumnName="SalesTaxSlip" />
+                <ScalarProperty Name="RocVat" ColumnName="RocVat" />
+                <ScalarProperty Name="ITR" ColumnName="ITR" />
+                <ScalarProperty Name="BankStatement" ColumnName="BankStatement" />
+                <ScalarProperty Name="PhoneBill" ColumnName="PhoneBill" />
+                <ScalarProperty Name="UtilityBill" ColumnName="UtilityBill" />
+                <ScalarProperty Name="AadharCard" ColumnName="AadharCard" />
+                <ScalarProperty Name="VoterId" ColumnName="VoterId" />
+                <ScalarProperty Name="RationCard" ColumnName="RationCard" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="DL" ColumnName="DL" />
+                <ScalarProperty Name="SalarySlip" ColumnName="SalarySlip" />
+                <ScalarProperty Name="PanCard" ColumnName="PanCard" />
+                <ScalarProperty Name="BusinessProof" ColumnName="BusinessProof" />
+                <ScalarProperty Name="ResiProof" ColumnName="ResiProof" />
+                <ScalarProperty Name="PropertyAddressVisit" ColumnName="PropertyAddressVisit" />
+                <ScalarProperty Name="BV" ColumnName="BV" />
+                <ScalarProperty Name="RV" ColumnName="RV" />
+                <ScalarProperty Name="BankAccountNumber" ColumnName="BankAccountNumber" />
+                <ScalarProperty Name="UserBankName" ColumnName="UserBankName" />
+                <ScalarProperty Name="OtherKYC" ColumnName="OtherKYC" />
+                <ScalarProperty Name="KYCDetailsAddProof" ColumnName="KYCDetailsAddProof" />
+                <ScalarProperty Name="KYCDetailsIdProof" ColumnName="KYCDetailsIdProof" />
+                <ScalarProperty Name="SuspectReason2" ColumnName="SuspectReason2" />
+                <ScalarProperty Name="SuspectReason1" ColumnName="SuspectReason1" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="MandatoryTrigger" ColumnName="MandatoryTrigger" />
+                <ScalarProperty Name="PickUpDocuments" ColumnName="PickUpDocuments" />
+                <ScalarProperty Name="TAT" ColumnName="TAT" />
+                <ScalarProperty Name="DateOfReporting" ColumnName="DateOfReporting" />
+                <ScalarProperty Name="DateOfPickup" ColumnName="DateOfPickup" />
+                <ScalarProperty Name="FieldExectiveName" ColumnName="FieldExectiveName" />
+                <ScalarProperty Name="SOName" ColumnName="SOName" />
+                <ScalarProperty Name="DealerDsaDstName" ColumnName="DealerDsaDstName" />
+                <ScalarProperty Name="LoanAmount" ColumnName="LoanAmount" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="OfficeName" ColumnName="OfficeName" />
+                <ScalarProperty Name="ApplicantResidenceAddress" ColumnName="ApplicantResidenceAddress" />
+                <ScalarProperty Name="EmployeStatus" ColumnName="EmployeStatus" />
+                <ScalarProperty Name="TUID" ColumnName="TUID" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="ReferredById" ColumnName="ReferredById" />
+                <ScalarProperty Name="ApplicantsName" ColumnName="ApplicantsName" />
+                <ScalarProperty Name="AssetDetails" ColumnName="AssetDetails" />
+                <ScalarProperty Name="Scheme" ColumnName="Scheme" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="SampleMonth" ColumnName="SampleMonth" />
+                <ScalarProperty Name="BankId" ColumnName="BankId" />
+                <ScalarProperty Name="ApplicationNum" ColumnName="ApplicationNum" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

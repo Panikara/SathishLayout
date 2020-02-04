@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <div style="width:20%;float:left">
+
+        </div>
+        <div style="width:60%;float:left;border:1px solid gray">
+            @Html.Raw(ViewBag.html)
+
+            @*@foreach (string x in ViewBag.html)
+                {
+                    @Html.Raw(x)
+                }*@
+
+        </div>
+        
+    </div>
+</body>
+</html>

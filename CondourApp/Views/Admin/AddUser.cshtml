@@ -1,0 +1,431 @@
+﻿@model CondourApp.Models.Edmx.User
+@{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="myModal" role="dialog" class="modal fade" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+
+    </div>
+    </div>
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title">Profile</h4>
+        </div>
+    </div>
+    <!-- end page title end breadcrumb -->
+
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div class="text-center">
+                            <h2 class="text-custom" data-plugin="counterup">6599</h2>
+                            <h5>Total Users</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div class="text-center">
+                            <h2 class="text-pink" data-plugin="counterup">5894</h2>
+                            <h5>Admins</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div class="text-center">
+                            <h2 class="text-warning" data-plugin="counterup">452</h2>
+                            <h5>Checkers</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6">
+                    <div class="card-box widget-user">
+                        <div class="text-center">
+                            <h2 class="text-info" data-plugin="counterup">1254</h2>
+                            <h5>Makers</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm("CreateUser", "Admin", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box">
+
+                            <h4 class="header-title m-t-0 m-b-30">Actions</h4>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item">
+                                            <a href="#home1" data-toggle="tab" aria-expanded="false" class="nav-link active">
+                                                Create User
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#profile1" data-toggle="tab" aria-expanded="true" class="nav-link">
+                                                Update User
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade show active" id="home1">
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-3 col-form-label">User Name</label>
+                                                    <div class="col-9">
+                                                        @*<input type="text" class="form-control" placeholder="username">*@
+                                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", required = "required", parsley_trigger = "change" })
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputPassword3" class="col-3 col-form-label">Password</label>
+                                                    <div class="col-9">
+                                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", required = "required", parsley_trigger = "change" })
+                                                        @*<input type="password" class="form-control" id="inputPassword3" placeholder="Password">*@
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="inputPassword5" class="col-3 col-form-label">Select Role</label>
+                                                    <div class="col-9">
+
+                                                        @Html.DropDownList("RoleId", ViewBag.Roles as SelectList, new { @class = "form-control" })
+
+                                                        @*<select class="form-control">
+                                                                <option>Maker</option>
+                                                                <option>Checker</option>
+                                                            </select>*@
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mb-0 justify-content-end row">
+                                                    <div class="col-9">
+                                                        <button type="submit" class="btn btn-info waves-effect waves-light">Create</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="profile1">
+                                            <form class="form-horizontal" role="form">
+                                                <div class="form-group row">
+                                                    <label for="inputEmail3" class="col-2 col-form-label">User Name</label>
+                                                    <div class="col-10">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="username here" aria-describedby="basic-addon2">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-dark waves-effect waves-light" type="button">Search</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            @using (Html.BeginForm("EditUser", "Admin"))
+                                            {
+
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th>UserName</th>
+                                                            <th>Role</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    @foreach (var item in ViewBag.GetAllUserDetails)
+                                                    {
+
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">@item.UserId</th>
+                                                                <td>@item.UserName</td>
+                                                                <td>@item.RoleId</td>
+
+                                                                <td>
+                                                                    <button type="button" value="Update" id="btnUpdate"></button>
+                                                                </td>
+                                                            </tr>
+
+
+                                                        </tbody>
+                                                    }
+                                                </table>
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div><!-- end col -->
+
+
+                            </div>
+                            <!-- end row -->
+                        </div>
+                    </div><!-- end col -->
+                </div>
+
+
+                @*</div>*@
+            }
+            <div class="col-sm-4">
+                <div class="card-box">
+
+                    <h4 class="header-title m-t-0 m-b-30">My Team Members</h4>
+                    <ul class="list-group m-b-0 user-list">
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="~/Content/App1/assets/images/users/avatar-3.png" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">Admin</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="~/Content/App1/assets/images/users/avatar-3.png" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">James Neon</span>
+                                    <span class="desc">Admin</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="~/Content/App1/assets/images/users/avatar-3.png" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">John Smith</span>
+                                    <span class="desc m-b-0">Checker</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="~/Content/App1/assets/images/users/avatar-3.png" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">Maker</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="~/Content/App1/assets/images/users/avatar-3.png" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Mat Helme</span>
+                                    <span class="desc">Checker</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div id="custom-modal" class="modal-demo">
+                <button type="button" class="close" onclick="Custombox.close();">
+                    <span>&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="custom-modal-title">Modal title</h4>
+                @*@{ Html.RenderPartial("_FillUser");}*@
+            </div>
+        </div>
+    </div>
+
+    @section styles{
+
+        <!-- Custom box css -->
+        <link href="~/Content/App1/assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
+
+        <!-- Notification css (Toastr) -->
+        <link href="~/Content/App1/assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+    }
+
+    @section scripts{
+
+
+        <!-- Toastr js -->
+        <script src="~/Content/App1/assets/plugins/toastr/toastr.min.js"></script>
+
+        <!-- Modal-Effect -->
+        <script src="~/Content/App1/assets/plugins/custombox/dist/custombox.min.js"></script>
+        <script src="~/Content/App1/assets/plugins/custombox/dist/legacy.min.js"></script>
+
+        <script type="text/javascript">
+            $(function () {
+
+                var toastCount = 0;
+
+                $('#btnUpdateUser').click(function () {
+
+                    var shortCutFunction = 'success';
+                    var msg = 'User details are updated';
+                    var title = 'Status';
+                    var showDuration = "300";
+                    var hideDuration = "1000";
+                    var timeOut = "5000";
+                    var extendedTimeOut = "1000";
+                    var showEasing = "swing";
+                    var hideEasing = "linear";
+                    var showMethod = "fadeIn";
+                    var hideMethod = "fadeOut";
+                    var toastIndex = toastCount++;
+                    var addClear = $('#addClear').prop('checked');
+
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if ($('#addBehaviorOnToastClick').prop('checked')) {
+                        toastr.options.onclick = function () {
+                            alert('You can perform some custom action after a toast goes away');
+                        };
+                    }
+
+                    if (showDuration.length) {
+                        toastr.options.showDuration = showDuration;
+                    }
+
+                    if (hideDuration.length) {
+                        toastr.options.hideDuration = hideDuration;
+                    }
+
+                    if (timeOut.length) {
+                        toastr.options.timeOut = addClear ? 0 : timeOut;
+                    }
+
+                    if (extendedTimeOut.length) {
+                        toastr.options.extendedTimeOut = addClear ? 0 : extendedTimeOut;
+                    }
+
+                    if (showEasing.length) {
+                        toastr.options.showEasing = showEasing;
+                    }
+
+                    if (hideEasing.length) {
+                        toastr.options.hideEasing = hideEasing;
+                    }
+
+                    if (showMethod.length) {
+                        toastr.options.showMethod = showMethod;
+                    }
+
+                    if (hideMethod.length) {
+                        toastr.options.hideMethod = hideMethod;
+                    }
+
+                    if (addClear) {
+                        msg = getMessageWithClearButton(msg);
+                        toastr.options.tapToDismiss = false;
+                    }
+                    if (!msg) {
+                        msg = getMessage();
+                    }
+
+                    $('#toastrOptions').text('Command: toastr["'
+                            + shortCutFunction
+                            + '"]("'
+                            + msg
+                            + (title ? '", "' + title : '')
+                            + '")\n\ntoastr.options = '
+                            + JSON.stringify(toastr.options, null, 2)
+                    );
+
+                    var $toast = toastr[shortCutFunction](msg, title); // Wire up an event handler to a button in the toast, if it exists
+                    $toastlast = $toast;
+
+                    if (typeof $toast === 'undefined') {
+                        return;
+                    }
+
+                    if ($toast.find('#okBtn').length) {
+                        $toast.delegate('#okBtn', 'click', function () {
+                            alert('you clicked me. i was toast #' + toastIndex + '. goodbye!');
+                            $toast.remove();
+                        });
+                    }
+                    if ($toast.find('#surpriseBtn').length) {
+                        $toast.delegate('#surpriseBtn', 'click', function () {
+                            alert('Surprise! you clicked me. i was toast #' + toastIndex + '. You could perform an action here.');
+                        });
+                    }
+                    if ($toast.find('.clear').length) {
+                        $toast.delegate('.clear', 'click', function () {
+                            toastr.clear($toast, {force: true});
+                        });
+                    }
+                });
+
+
+            
+            $("#btnUpdate").click(function () {
+             
+                var userId = 'e2f36c8e-0443-4156-9095-353a364f15d5';
+                //var phoneNumColl = new Array();
+                //var count = table.rows( { selected: true } ).count();
+                //for (var i = 0; i < table.rows('.selected').data().length; i++) {
+                //    phoneNumColl.push(table.rows('.selected').data()[i][8])
+           
+           // $('#myModal').modal('show');
+            // var value = 0;
+          GetUserDetails(userId);
+          $('#myModal').modal('show');
+
+            });
+            function GetUserDetails(userId) {
+              //  alert(userId)
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("EditUser", "Admin")',
+                    cache: false,
+                    data: { "id": userId },
+                    success: function (data) {
+                        
+                        //$('.modal-dialog').html("");
+                        //$('.modal-dialog').html(data);
+                    },
+                    error: function (response) {
+
+                    }
+                })
+            }
+
+            })
+
+            
+        </script>
+
+
+    }
+
