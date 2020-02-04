@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using CondourApp.Models.DB;
 using CondourApp.Models.Edmx;
 
+
 namespace CondourApp.Controllers
 {
     public class AdminController : Controller
@@ -35,7 +36,7 @@ namespace CondourApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult CreateUser(User user)
+        public ActionResult CreateUser(UserInfoes user)
         {
             
             objDb.Adduser(user);

@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -357,15 +358,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Edmx\Condour.Context.tt">
+    <Content Include="SathishLayout.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Condour.edmx</DependentUpon>
-      <LastGenOutput>Condour.Context.cs</LastGenOutput>
+      <DependentUpon>SathishLayout.edmx</DependentUpon>
+      <LastGenOutput>SathishLayout.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Edmx\Condour.tt">
+    <Content Include="SathishLayout.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Condour.edmx</DependentUpon>
-      <LastGenOutput>Condour.cs</LastGenOutput>
+      <DependentUpon>SathishLayout.edmx</DependentUpon>
+      <LastGenOutput>SathishLayout.cs</LastGenOutput>
     </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -402,12 +403,12 @@
     <Content Include="Content\App1\assets\plugins\summernote\font\summernote291f.ttf" />
     <Content Include="Content\App1\assets\plugins\summernote\font\summernote291f.woff" />
     <Content Include="Content\App1\assets\plugins\summernote\font\summernoted41d.eot" />
-    <EntityDeploy Include="Models\Edmx\Condour.edmx">
+    <EntityDeploy Include="SathishLayout.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Condour.Designer.cs</LastGenOutput>
+      <LastGenOutput>SathishLayout.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Edmx\Condour.edmx.diagram">
-      <DependentUpon>Condour.edmx</DependentUpon>
+    <Content Include="SathishLayout.edmx.diagram">
+      <DependentUpon>SathishLayout.edmx</DependentUpon>
     </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\datatable\jquery.app.js" />
@@ -451,62 +452,23 @@
     <Compile Include="Models\DB\AdminDBOperations.cs" />
     <Compile Include="Models\DB\CommonDBOperations.cs" />
     <Compile Include="Models\DB\UserDBOperations.cs" />
-    <Compile Include="Models\Edmx\Application.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Bank.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Branch.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Condour.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Condour.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Condour.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Condour.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Condour.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\EmailConfig.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\EmploymentStatu.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Location.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Product.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\ReferredBy.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Region.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Role.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\Status.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\SuspectReason.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Edmx\User.cs">
-      <DependentUpon>Condour.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Logger\Library.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SathishLayout.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SathishLayout.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SathishLayout.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SathishLayout.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SathishLayout.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SathishLayout.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />

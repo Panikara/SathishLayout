@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using CondourApp.Models.Edmx;
-
+using CondourApp;
 namespace CondourApp.Models.DB
 {
     public class UserDBOperations
@@ -14,7 +14,7 @@ namespace CondourApp.Models.DB
             User user = new User();
             try
             {
-                using (ConsultancyEntities db = new ConsultancyEntities())
+                using (SathishLayoutEntities db = new SathishLayoutEntities())
                 {
                     
       user = db.Users.Where(u => u.UserName.ToLower() == userName.ToLower()).Where(u => u.Password == pwd).FirstOrDefault();
