@@ -514,6 +514,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\Admin\" />
     <Folder Include="scripts\App1\" />
+    <Folder Include="UploadImages\" />
     <Folder Include="Views\Checker\" />
   </ItemGroup>
   <ItemGroup>

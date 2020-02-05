@@ -11,7 +11,8 @@ namespace CondourApp
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class UserInfo
     {
         public System.Guid UserId { get; set; }
@@ -32,5 +33,7 @@ namespace CondourApp
         public string Attachments { get; set; }
     
         public virtual Role Role { get; set; }
+
+        public HttpPostedFileBase postedFile { get; set; }
     }
 }

@@ -8,13 +8,13 @@ using System.Threading;
 using CondourApp.Models.Logger;
 using CondourApp.Models.DB;
 using System.Web.Security;
-
+using System.IO;
 
 namespace CondourApp.Controllers
 {
     public class HomeController : Controller
     {
-        SathishLayoutEntities dbRegister = new SathishLayoutEntities();
+        
         // GET: Home
         public ActionResult Index()
         {
@@ -190,12 +190,45 @@ namespace CondourApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(UserInfo userRegistration)
+        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile)
         {
+            SathishLayoutEntities entities = new SathishLayoutEntities();
+
+            string path = Server.MapPath("~/UploadImages/");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            if (Request.Files.Count > 0)
+            {
+               
+                string fileName = System.IO.Path.GetFileName(postedFile.FileName);
+                string filePath = "~/UploadImages/" + fileName;
+                postedFile.SaveAs(path + postedFile.FileName);
+
+                entities.Configuration.ProxyCreationEnabled = false;
+               
+                entities.UserInfoes.Add(new UserInfo
+                {
+                    UserName = userRegistration.UserName,
+                    Password = userRegistration.Password,
+                    AadharNumber = userRegistration.AadharNumber,
+                    PrimaryContactNumber = userRegistration.PrimaryContactNumber,
+                    Email = userRegistration.Email,
+                    FatherName = userRegistration.FatherName,
+                    Venture = userRegistration.Venture,
+                    PlotNumber = userRegistration.PlotNumber,
+                    Address = userRegistration.Address,
+                    Gender = userRegistration.Gender,
+                    AltContactNumber = userRegistration.AltContactNumber,
+                    Comments = userRegistration.Comments,
+                    Attachments = filePath
+
+
+                });
+                entities.SaveChanges();
+            }
            
-            
-                dbRegister.UserInfoes.Add(userRegistration);
-                dbRegister.SaveChanges();
             
             return View();
         }
