@@ -205,32 +205,36 @@ namespace CondourApp.Controllers
                 string fileName = System.IO.Path.GetFileName(postedFile.FileName);
                 string filePath = "~/UploadImages/" + fileName;
                 postedFile.SaveAs(path + postedFile.FileName);
-
-                entities.Configuration.ProxyCreationEnabled = false;
-               
-                entities.UserInfoes.Add(new UserInfo
-                {
-                    UserName = userRegistration.UserName,
-                    Password = userRegistration.Password,
-                    AadharNumber = userRegistration.AadharNumber,
-                    PrimaryContactNumber = userRegistration.PrimaryContactNumber,
-                    Email = userRegistration.Email,
-                    FatherName = userRegistration.FatherName,
-                    Venture = userRegistration.Venture,
-                    PlotNumber = userRegistration.PlotNumber,
-                    Address = userRegistration.Address,
-                    Gender = userRegistration.Gender,
-                    AltContactNumber = userRegistration.AltContactNumber,
-                    Comments = userRegistration.Comments,
-                    Attachments = filePath
-
-
-                });
+                userRegistration.Attachments = filePath;
+               userRegistration.UserId = Guid.NewGuid();
+                entities.UserInfoes.Add(userRegistration);
                 entities.SaveChanges();
+
+                //entities.Configuration.ProxyCreationEnabled = false;
+               
+                //entities.UserInfoes.Add(new UserInfo
+                //{
+                //    UserName = userRegistration.UserName,
+                //    Password = userRegistration.Password,
+                //    AadharNumber = userRegistration.AadharNumber,
+                //    PrimaryContactNumber = userRegistration.PrimaryContactNumber,
+                //    Email = userRegistration.Email,
+                //    FatherName = userRegistration.FatherName,
+                //    Venture = userRegistration.Venture,
+                //    PlotNumber = userRegistration.PlotNumber,
+                //    Address = userRegistration.Address,
+                //    Gender = userRegistration.Gender,
+                //    AltContactNumber = userRegistration.AltContactNumber,
+                //    Comments = userRegistration.Comments,
+                //    Attachments = filePath
+
+
+                //});
+                //entities.SaveChanges();
             }
            
             
-            return View();
+            return RedirectToAction("RegisterSuccess");
         }
 
         public ActionResult RegisterSuccess()

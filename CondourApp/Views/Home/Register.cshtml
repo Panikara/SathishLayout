@@ -25,13 +25,13 @@
         <div class="form-group">
             @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control",required = "required" } })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2",placeholder="Password",@type="Password" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
@@ -97,7 +97,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Address,5,160,new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -129,7 +129,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Comments, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Comments, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Comments,4,160,new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -145,18 +145,24 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-primary" onclick="RegisterMessage()"/>
             </div>
         </div>
 
-        <div><input type="submit" value="Submit" /></div>
+        
     </div>
 }
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 
-    
-
-    @Html.ActionLink("Register", "RegisterSuccess")
+</div>
+<div>
+    <script>
+        function RegisterMessage() {
+            alert("Register SuccesFully");
+            
+         
+        }
+    </script>
 </div>
