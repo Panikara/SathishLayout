@@ -96,7 +96,15 @@ namespace CondourApp.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("LoginSuccess", "Home");
+                        if(coll["userName"].ToLower()=="admin" && coll["pwd"].ToLower()=="admin")
+                        {
+                            return RedirectToAction("GetUsers", "Admin");
+                        }
+                        else
+                        {
+                            return RedirectToAction("LoginSuccess", "Home");
+                        }
+                        
                     }
 
                 }

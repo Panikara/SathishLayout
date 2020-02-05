@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CondourApp.UserInfo>
+   @{
+    ViewBag.Title = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- DataTables -->
+@*<link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />*@
+<link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <h4 class="m-t-0 header-title">Owners Details</h4>
+            <p class="text-muted font-14 m-b-30">
+              
+            </p>
+            <table id="datatable" class="table table-bordered">
+                <tr>
+                    <th>UserName</th>
+                    @*<th>Bank</th>*@
+                    <th>PlotNumber</th>
+                    <th>Address</th>
+                    <th>Comments</th>
+                    <th>Actions</th>
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.UserName</td>
+                        @*<td>@item.Bank.BankName</td>*@
+                        <td>@item.PlotNumber</td>
+                        <td>@item.Address</td>
+                        <td>@item.Comments</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })
+                            @Html.ActionLink("Details", "DetailsApplicationUser", new { id = item.UserId })
+                            @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@
+                            @Html.ActionLink("Delete", "DeleteApplicationUser", new { id = item.UserId },
+                            new { onclick = "return confirm('Are sure wants to delete?');" })
+                        </td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+</div> <!-- end row -->
+<!-- jQuery  -->
+
+<script src="~/scripts/datatable/jquery.min.js"></script>
+<script src="~/scripts/datatable/popper.min.js"></script>
+<script src="~/scripts/datatable/bootstrap.min.js"></script>
+<script src="~/scripts/datatable/waves.js"></script>
+<script src="~/scripts/datatable/jquery.slimscroll.js"></script>
+
+
+
+
+<!-- Required datatable js -->
+
+<script src="~/scripts/datatable/datatables.min.js"></script>
+<script src="~/scripts/datatable/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // Default Datatable
+        $('#datatable').DataTable();
+    });
+</script>
