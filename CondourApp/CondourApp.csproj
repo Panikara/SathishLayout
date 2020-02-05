@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>3.2</TypeScriptToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -410,6 +410,7 @@
     <Content Include="SathishLayout.edmx.diagram">
       <DependentUpon>SathishLayout.edmx</DependentUpon>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\datatable\jquery.app.js" />
     <Content Include="scripts\datatable\jquery.core.js" />
@@ -454,6 +455,9 @@
     <Compile Include="Models\DB\UserDBOperations.cs" />
     <Compile Include="Models\Logger\Library.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role.cs">
+      <DependentUpon>SathishLayout.tt</DependentUpon>
+    </Compile>
     <Compile Include="SathishLayout.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -468,6 +472,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SathishLayout.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserInfo.cs">
+      <DependentUpon>SathishLayout.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -493,6 +500,9 @@
     <Content Include="Views\Admin\Editapplication.cshtml" />
     <Content Include="Views\Admin\DetailsApplicationUser.cshtml" />
     <Content Include="Views\Maker\BulkUpload.cshtml" />
+    <Content Include="Views\Home\LoginSuccess.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\RegisterSuccess.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

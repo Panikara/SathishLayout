@@ -20,6 +20,18 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="Password" Type="nvarchar" MaxLength="200" />
           <Property Name="RoleId" Type="int" />
+          <Property Name="AadharNumber" Type="int" />
+          <Property Name="PrimaryContactNumber" Type="bigint" />
+          <Property Name="Email" Type="nvarchar" MaxLength="200" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Venture" Type="nvarchar" MaxLength="200" />
+          <Property Name="PlotNumber" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="20" />
+          <Property Name="AltContactNumber" Type="bigint" />
+          <Property Name="Nominees" Type="nvarchar" MaxLength="500" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="500" />
+          <Property Name="Attachments" Type="nvarchar" MaxLength="800" />
         </EntityType>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
@@ -70,6 +82,18 @@
           <Property Name="Password" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="RoleId" Type="Int32" />
           <NavigationProperty Name="Role" Relationship="SathishLayoutModel.FK__UserInfo__RoleId__1273C1CD" FromRole="UserInfo" ToRole="Role" />
+          <Property Name="AadharNumber" Type="Int32" />
+          <Property Name="PrimaryContactNumber" Type="Int64" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Venture" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PlotNumber" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AltContactNumber" Type="Int64" />
+          <Property Name="Nominees" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Attachments" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Type="SathishLayoutModel.Role" Role="Role" Multiplicity="0..1" />
@@ -100,6 +124,18 @@
           <EntitySetMapping Name="UserInfoes">
             <EntityTypeMapping TypeName="SathishLayoutModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Attachments" ColumnName="Attachments" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Nominees" ColumnName="Nominees" />
+                <ScalarProperty Name="AltContactNumber" ColumnName="AltContactNumber" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PlotNumber" ColumnName="PlotNumber" />
+                <ScalarProperty Name="Venture" ColumnName="Venture" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PrimaryContactNumber" ColumnName="PrimaryContactNumber" />
+                <ScalarProperty Name="AadharNumber" ColumnName="AadharNumber" />
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />

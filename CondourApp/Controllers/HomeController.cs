@@ -8,12 +8,13 @@ using System.Threading;
 using CondourApp.Models.Logger;
 using CondourApp.Models.DB;
 using System.Web.Security;
-using CondourApp.Models.Edmx;
+
 
 namespace CondourApp.Controllers
 {
     public class HomeController : Controller
     {
+        SathishLayoutEntities dbRegister = new SathishLayoutEntities();
         // GET: Home
         public ActionResult Index()
         {
@@ -95,7 +96,7 @@ namespace CondourApp.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Home", "Home");
+                        return RedirectToAction("LoginSuccess", "Home");
                     }
 
                 }
@@ -145,7 +146,7 @@ namespace CondourApp.Controllers
                 }
 
                 UserDBOperations db = new UserDBOperations();
-                User user = db.GetUser(userId);
+                UserInfo user = db.GetUser(userId);
                 if (user != null)
                 {
                    
@@ -176,6 +177,33 @@ namespace CondourApp.Controllers
 
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Home");
+        }
+
+        public ActionResult LoginSuccess()
+        {
+            ViewBag.successMessage = "Login SuccessFully";
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Register(UserInfo userRegistration)
+        {
+           
+            
+                dbRegister.UserInfoes.Add(userRegistration);
+                dbRegister.SaveChanges();
+            
+            return View();
+        }
+
+        public ActionResult RegisterSuccess()
+        {
+            ViewBag.RegisterMessage = "Registration SuccessFully Completed";
+            return View();
         }
     }
 }

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using CondourApp.Models.Edmx;
+
 using CondourApp;
 namespace CondourApp.Models.DB
 {
@@ -11,13 +11,13 @@ namespace CondourApp.Models.DB
     {
         public Guid IsValidUser(string userName, string pwd)
         {
-            User user = new User();
+            UserInfo user = new UserInfo();
             try
             {
                 using (SathishLayoutEntities db = new SathishLayoutEntities())
                 {
                     
-      user = db.Users.Where(u => u.UserName.ToLower() == userName.ToLower()).Where(u => u.Password == pwd).FirstOrDefault();
+      user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).Where(u => u.Password == pwd).FirstOrDefault();
                    
                 }
             }
@@ -38,13 +38,13 @@ namespace CondourApp.Models.DB
 
         }
 
-        public User GetUser(Guid id)
+        public UserInfo GetUser(Guid id)
         {
             try
             {
-                using (ConsultancyEntities db = new ConsultancyEntities())
+                using (SathishLayoutEntities db = new SathishLayoutEntities())
                 {
-                    User user = db.Users.Find(id);
+                    UserInfo user = db.UserInfoes.Find(id);
                     if (user != null)
                         return user;
                 }
@@ -64,10 +64,10 @@ namespace CondourApp.Models.DB
             string[] roleColl = new string[1];
             try
             {
-                using (ConsultancyEntities db = new ConsultancyEntities())
+                using (SathishLayoutEntities db = new SathishLayoutEntities())
                 {
 
-        User   user = db.Users.Where(u => u.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
+        UserInfo   user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
                     roleColl[0] = user.Role.Role1;
                 }
             }
@@ -86,10 +86,10 @@ namespace CondourApp.Models.DB
             bool isUserInRole = false;
             try
             {
-                using (ConsultancyEntities db = new ConsultancyEntities())
+                using (SathishLayoutEntities db = new SathishLayoutEntities())
                 {
 
-      User user = db.Users.Where(u => u.UserName.ToLower() == userName.ToLower()).
+      UserInfo user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).
                         Where(u=>u.Role.Role1==role).FirstOrDefault();
                     if (user != null)
                     {
