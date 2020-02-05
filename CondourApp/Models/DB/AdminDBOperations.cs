@@ -22,7 +22,7 @@ namespace CondourApp.Models.DB
         //    {
         //        using (ConsultancyEntities db = new ConsultancyEntities())
         //        {
-                    
+
         //            user.UserId = Guid.NewGuid();
 
         //            db.Users.Add(user);
@@ -49,14 +49,14 @@ namespace CondourApp.Models.DB
         //    //}
 
         //}
-        //public List<User> GetAllUserDetails()
-        //{
-        //    using (ConsultancyEntities db = new ConsultancyEntities())
-        //    {
-        //        List<User> lstUSer = db.Users.ToList();
-        //        return (lstUSer);
-        //    }
-        //}
+        public List<UserInfo> GetAllUserDetails()
+        {
+            using (SathishLayoutEntities db = new SathishLayoutEntities())
+            {
+                List<UserInfo> lstUSer = db.UserInfoes.ToList();
+                return (lstUSer);
+            }
+        }
         //public User EditUser(Guid id)
         //{
         //   // Guid editedGuid = new Guid(id);

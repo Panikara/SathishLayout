@@ -32,11 +32,9 @@ Condour.msl(91,10) : error 3024: Problem in mapping fragments starting at line 9
 
 18/11/2018 2:50:51 PM : At IsValidUser UserName- Madhubabu
 EntityFramework ; No connection string named 'CondourEntities' could be found in the application config file.
-05-02-2020 22:45:00 : At IsValidUser UserName- admin
+2/5/2020 10:36:12 PM : At IsValidUser UserName- admin
 EntityFramework ; The 'AadharNumber' property on 'UserInfo' could not be set to a 'System.Int64' value. You must set this property to a non-null value of type 'System.Int32'.
-05-02-2020 22:45:15 : At IsValidUser UserName- admin
+2/5/2020 10:36:24 PM : At IsValidUser UserName- admin
 EntityFramework ; The 'AadharNumber' property on 'UserInfo' could not be set to a 'System.Int64' value. You must set this property to a non-null value of type 'System.Int32'.
-05-02-2020 22:55:24 : At IsValidUser UserName- admin
+2/5/2020 10:36:35 PM : At IsValidUser UserName- admin
 EntityFramework ; The 'AadharNumber' property on 'UserInfo' could not be set to a 'System.Int64' value. You must set this property to a non-null value of type 'System.Int32'.
-05-02-2020 23:21:11 : At IsValidUser UserName- admin
-CondourApp ; Object reference not set to an instance of an object.
