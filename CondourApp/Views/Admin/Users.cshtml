@@ -40,9 +40,9 @@
                         <td>@item.Comments</td>
                         <td>
                             @Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })
-                            @Html.ActionLink("Details", "DetailsApplicationUser", new { id = item.UserId })
+                            @Html.ActionLink("Status", "StatusPage","Admin",new {name =item.UserName},null)
                             @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@
-                            @Html.ActionLink("Delete", "DeleteApplicationUser", new { id = item.UserId },
+                            @Html.ActionLink("Delete", "DeleteApplicationUser", new { id ="admin1"},
                             new { onclick = "return confirm('Are sure wants to delete?');" })
                         </td>
                     </tr>

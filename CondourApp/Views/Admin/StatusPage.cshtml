@@ -1,0 +1,52 @@
+﻿@model CondourApp.UserInfo
+
+@{
+    ViewBag.Title = "StatusPage";
+}
+
+<h2>StatusPage</h2>
+
+<div>
+    <h4>UserInfo</h4>
+    <hr />
+    <div class="row">
+        <div class="col-12">
+            <div class="card-box table-responsive">
+                <h4 class="m-t-0 header-title">Owners Details</h4>
+                <p class="text-muted font-14 m-b-30">
+
+                </p>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>UserName</th>
+                        @*<th>Bank</th>*@
+                        <th>PlotNumber</th>
+                        <th>Address</th>
+                        <th>Comments</th>
+                        <th>Status</th>
+                    </tr>
+
+
+
+
+                    <tr>
+
+                        <td>@Html.DisplayFor(model => model.UserName)</td>
+                        @*<td>@item.Bank.BankName</td>*@
+                        <td>@Html.DisplayFor(model => model.PlotNumber)</td>
+                        <td>@Html.DisplayFor(model => model.Address)</td>
+                        <td>@Html.DisplayFor(model => model.Comments)</td>
+                        <td>@Html.ActionLink("Approved", "Index1") | @Html.ActionLink("Rejected", "Index1")</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "GetUsers","Admin",new { @class = "btn btn-primary" })
+</p>

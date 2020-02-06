@@ -104,5 +104,12 @@ namespace CondourApp.Controllers
         //        Application userDetails = objDb.EditAppliactionData(id);
         //        return View(userDetails);
         //    }
+
+        public ActionResult StatusPage(string name)
+        {
+            SathishLayoutEntities dbContext = new SathishLayoutEntities();
+            UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == name).FirstOrDefault();
+            return View(singleUser);
+        }
     }
 }
