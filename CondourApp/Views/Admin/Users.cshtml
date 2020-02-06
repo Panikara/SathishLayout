@@ -25,6 +25,7 @@
                     <th>PlotNumber</th>
                     <th>Address</th>
                     <th>Comments</th>
+                    <td>Status</td>
                     <th>Actions</th>
                 </tr>
 
@@ -38,6 +39,7 @@
                         <td>@item.PlotNumber</td>
                         <td>@item.Address</td>
                         <td>@item.Comments</td>
+                        <td>@item.Status</td>
                         <td>
                             @Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })
                             @Html.ActionLink("Status", "StatusPage","Admin",new {name =item.UserName},null)

@@ -187,7 +187,7 @@ namespace CondourApp.Controllers
             return RedirectToAction("Login", "Home");
         }
 
-        public ActionResult LoginSuccess()
+        public ActionResult LoginSuccess(string userName)
         {
             ViewBag.successMessage = "Login SuccessFully";
             return View();
@@ -250,5 +250,10 @@ namespace CondourApp.Controllers
             ViewBag.RegisterMessage = "Registration SuccessFully Completed";
             return View();
         }
+
+        //public ActionResult ShowLoginUserDetails(string userName)
+        //{
+        //    return View();
+        //}
     }
 }

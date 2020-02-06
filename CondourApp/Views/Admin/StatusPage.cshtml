@@ -39,7 +39,7 @@
                         <td>@Html.DisplayFor(model => model.Address)</td>
                         <td>@Html.DisplayFor(model => model.Comments)</td>
                         <td>Status Pending</td>
-                        <td>@Html.ActionLink("Approved", "Index1") | @Html.ActionLink("Rejected", "Index1")</td>
+                        <td>@Html.ActionLink("Approve", "UpdateStatus", "Admin", new { name = Model.UserName,status="Approved" }, null)|@Html.ActionLink("Reject", "UpdateStatus", "Admin", new { name = Model.UserName, status = "Rejected" }, null)</td>
                     </tr>
                 </table>
             </div>
@@ -52,3 +52,16 @@
    
     @Html.ActionLink("Back to List", "GetUsers","Admin",new { @class = "btn btn-primary" })
 </p>
+<div>
+    <script>
+        $(document).ready(function () {
+            $("#Approved").click(function () {
+                alert("App")
+            })
+            $("#Rejected").click(function () {
+                alert("Rej")
+            })
+        })
+
+    </script>
+</div>

@@ -111,5 +111,16 @@ namespace CondourApp.Controllers
             UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == name).FirstOrDefault();
             return View(singleUser);
         }
+      //  [HttpPost]
+        public ActionResult UpdateStatus(string name,string status)
+        {
+            SathishLayoutEntities dbContext = new SathishLayoutEntities();
+            UserInfo singleUser1 = dbContext.UserInfoes.Where(u => u.UserName == name).FirstOrDefault();
+            singleUser1.Status = status;
+            dbContext.Entry(singleUser1).State = System.Data.Entity.EntityState.Modified;
+           
+            dbContext.SaveChanges();
+            return RedirectToAction("GetUsers");
+        }
     }
 }
