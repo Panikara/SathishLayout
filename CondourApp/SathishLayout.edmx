@@ -20,7 +20,7 @@
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="Password" Type="nvarchar" MaxLength="200" />
           <Property Name="RoleId" Type="int" />
-          <Property Name="AadharNumber" Type="int" />
+          <Property Name="AadharNumber" Type="bigint" />
           <Property Name="PrimaryContactNumber" Type="bigint" />
           <Property Name="Email" Type="nvarchar" MaxLength="200" />
           <Property Name="FatherName" Type="nvarchar" MaxLength="100" />
@@ -32,6 +32,7 @@
           <Property Name="Nominees" Type="nvarchar" MaxLength="500" />
           <Property Name="Comments" Type="nvarchar" MaxLength="500" />
           <Property Name="Attachments" Type="nvarchar" MaxLength="800" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
@@ -94,6 +95,7 @@
           <Property Name="Nominees" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Attachments" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Type="SathishLayoutModel.Role" Role="Role" Multiplicity="0..1" />
@@ -124,6 +126,7 @@
           <EntitySetMapping Name="UserInfoes">
             <EntityTypeMapping TypeName="SathishLayoutModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Attachments" ColumnName="Attachments" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
                 <ScalarProperty Name="Nominees" ColumnName="Nominees" />

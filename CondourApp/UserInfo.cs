@@ -11,15 +11,11 @@ namespace CondourApp
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Web;
-
+    
     public partial class UserInfo
     {
         public System.Guid UserId { get; set; }
         public string UserName { get; set; }
-
-        [DataType(DataType.Password)]
         public string Password { get; set; }
         public Nullable<int> RoleId { get; set; }
         public Nullable<int> AadharNumber { get; set; }
@@ -34,9 +30,8 @@ namespace CondourApp
         public string Nominees { get; set; }
         public string Comments { get; set; }
         public string Attachments { get; set; }
+        public string Status { get; set; }
     
         public virtual Role Role { get; set; }
-
-        public HttpPostedFileBase postedFile { get; set; }
     }
 }

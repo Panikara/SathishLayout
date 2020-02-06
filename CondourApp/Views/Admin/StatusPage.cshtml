@@ -25,6 +25,7 @@
                         <th>Address</th>
                         <th>Comments</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
 
 
@@ -37,6 +38,7 @@
                         <td>@Html.DisplayFor(model => model.PlotNumber)</td>
                         <td>@Html.DisplayFor(model => model.Address)</td>
                         <td>@Html.DisplayFor(model => model.Comments)</td>
+                        <td>Status Pending</td>
                         <td>@Html.ActionLink("Approved", "Index1") | @Html.ActionLink("Rejected", "Index1")</td>
                     </tr>
                 </table>
