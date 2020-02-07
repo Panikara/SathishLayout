@@ -38,8 +38,8 @@
                         <td>@Html.DisplayFor(model => model.PlotNumber)</td>
                         <td>@Html.DisplayFor(model => model.Address)</td>
                         <td>@Html.DisplayFor(model => model.Comments)</td>
-                        <td>Status Pending</td>
-                        <td>@Html.ActionLink("Approve", "UpdateStatus", "Admin", new { name = Model.UserName,status="Approved" }, null)|@Html.ActionLink("Reject", "UpdateStatus", "Admin", new { name = Model.UserName, status = "Rejected" }, null)</td>
+                        <td>@Html.DisplayFor(model => model.Status)</td>
+                        <td>@Html.ActionLink("Approve", "UpdateStatus", "Admin", new { name = Model.UserName,status="Approved",@class="btn btn-success" }, null)|@Html.ActionLink("Reject", "UpdateStatus", "Admin", new { name = Model.UserName, status = "Rejected", @class = "btn btn-danger" }, null)</td>
                     </tr>
                 </table>
             </div>

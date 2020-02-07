@@ -1,0 +1,75 @@
+   Administering the Data center with Windows Servers 2016, 2012R2 & 2008 R2, and Dell Storage SC4020 All-In-One Array with Dell Complaints Storage NAS FS8600 & Enclosure.
+?     Managing Enterprise Manager Client for Dell Storage SC4020 All-In-One Array with Dell Complaints Storage NAS FS8600 & Enclosure.
+?     Creating and Managing the SMB File sharing
+?     Creating and Managing the LUN for Virtual windows servers.
+?     Managing the Disk management and log?s update with Dell Complaints Storage Support 
+?     Managing and Veritas NetBackup v8.0 with Dell TL2000 Tape library (LTO 7) for files Backup and Restore.
+?     Managing and Troubleshooting Windows Hyper ?V 2012
+?     Take a Snapshot for Virtual Machines and revert back to the previous state.
+?     Monitoring & troubleshooting AD Replication Site and services issues.
+?     Managing OU architecture & delegated permissions for an OU to a user or to a security group
+?     Creating and managing the Group Policy Management.
+?     Managing and Troubleshooting DNS, DHCP server.
+?     Installing and configuring the Windows Clustering.
+?     Managing and Troubleshooting the DFS & DFS-R.
+?     Managing and Troubleshooting FTP issues.
+?     Patching Windows Servers using WSUS.
+?     Deploying Windows operating system and Software application through SCCM 2012
+Management application console.
+?     Deploying Windows updates through SCCM 2012.
+?     Taking SCCM 2012 Site backup weekly twice.
+?     The root causes analysis and fixing the Windows Server related issues.
+?     Managing Volume Activation tool for Windows server, client nodes, Microsoft office.
+?     Monitoring servers with Manage Engine monitoring tool.
+?     Installation configuring and backup Microsoft IIS & SQL servers.
+?     Managing and update Symantec Endpoint security.
+?     Managing and update McAFee anti-virus update and DLP maintains.
+?     McAFee Encryption and Decryption H/W level.
+ 
+ Ensure Support Services (India) Limited. (Redington India Ltd) as Sr.Server Engineer & Windows Administrator Level 4
+Aug 2012 to Jun 2015
+Client Place: Bosch Ltd (MICO Bosch Bangalore)
+*     Administering the Data center with Windows 2012 R2 & 2008R2 Servers.
+*     Granting share and folder access to end users
+*     Monitoring & troubleshooting AD Replication Site issues
+*     Moving into FSMO roles from one server to another server
+*     Installing and configuring the additional domain controller
+*     Creating and managing OU architecture
+*     Delegated permissions for an OU to a user or to a security group
+*     Creating and managing the Group Policy
+*     The root causes analysis and fixing the Windows Server related issues
+*     Patching Windows Servers using WSUS
+*     Managing and Troubleshooting the SCOM & SCCM 2012 R2 application server issues
+*     Managing Volume Activation tool for Windows server, client nodes, Microsoft office
+*     Managing and Troubleshooting the DFS-R issues
+*     Installing and configuring the Windows Clustering
+*     Managing and Troubleshooting Desktop, Laptop and Hyper-V Windows 2012 R2 & 2008 R2 Terminal servers.
+*     Using the RV-Tools to monitor the VM snapshots.
+*     Install and Configure the VMware in Hyper-V.
+*     Take a Snapshot for Virtual Machines and revert back to the previous state
+*     Monitoring the vSphere replication
+*     Migration physical machine to virtual machine using VSphere.
+*     Collect the KPI values and prepare the report on weekly and monthly basis
+*     Using Enterprise Manager Client for Dell Complaints Storage (SAN)
+*     Monitoring servers with Nagios tool.
+*     Support, maintenance & update of Symantec antivirus suite.
+ 
+ Appnomic Systems Pvt Ltd as System Administrator
+Oct 2009 to Nov 2012
+*     Installing, configuring and administering the Windows Server 2008 & 03 R2, Domain based environment
+*     Managed user accounts, groups and controlling access rights using Active Directory
+*     Installing and Configuring DHCP, DNS, Hyper-V, WSUS.
+*     Configuring & applying GPO in server 2003 and Server 2008.
+*     Knowledge & Configuring RAID Levels.
+*     Backup & Restoring Windows server ADS & Users file
+*     Knowledge & Understanding of Backup Technologies & Disaster Recovery
+*     Support, maintenance & update of antivirus suite
+*     Perform general administration of servers (upgrades, patching & installs)
+*     Troubleshooting the incidents & problems reported on the Network Printers, Desktop, Laptops and servers
+*     Desktop & Thin client End user support for MS Windows XP, vista, Windows 7 & Windows 8.
+*     Managing & Troubleshoot Network LAN, Desktops, Laptops, Think client.
+*     Managing and update McAFee anti-virus update and DLP maintains.
+*     McAFee Encryption and Decryption H/W level.
+ 
+^ Back to Top
+ 

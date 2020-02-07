@@ -102,7 +102,7 @@ namespace CondourApp.Controllers
                         }
                         else
                         {
-                            return RedirectToAction("LoginSuccess", "Home");
+                            return RedirectToAction("UserDetails", "Home",new { userName= coll["userName"] });
                         }
                         
                     }
@@ -215,6 +215,7 @@ namespace CondourApp.Controllers
                 postedFile.SaveAs(path + postedFile.FileName);
                 userRegistration.Attachments = filePath;
                userRegistration.UserId = Guid.NewGuid();
+                userRegistration.Status = "In progress";
                 entities.UserInfoes.Add(userRegistration);
                 entities.SaveChanges();
 
@@ -251,7 +252,15 @@ namespace CondourApp.Controllers
             return View();
         }
 
-        //public ActionResult ShowLoginUserDetails(string userName)
+        public ActionResult UserDetails(string userName)
+        {
+            SathishLayoutEntities dbContext = new SathishLayoutEntities();
+            UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
+            return View(singleUser);
+           // return View();
+        }
+       // [HttpPost]
+        //public ActionResult ShowLoginUserDetails(FormCollection userName)
         //{
         //    return View();
         //}
