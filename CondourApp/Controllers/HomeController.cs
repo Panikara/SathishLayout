@@ -198,7 +198,7 @@ namespace CondourApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile)
+        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,List<PlotDetail> plotInfo)
         {
             SathishLayoutEntities entities = new SathishLayoutEntities();
 
@@ -207,6 +207,12 @@ namespace CondourApp.Controllers
             {
                 Directory.CreateDirectory(path);
             }
+
+           // List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
+
+           // PlotCompleteInfo.Add(plotInfo);
+           
+
             if (Request.Files.Count > 0)
             {
                
@@ -216,7 +222,20 @@ namespace CondourApp.Controllers
                 userRegistration.Attachments = filePath;
                userRegistration.UserId = Guid.NewGuid();
                 userRegistration.Status = "In progress";
+
+               
+                
+
+               
+
+                foreach(var plots in plotInfo)
+                {
+                    entities.PlotDetails.Add(plots);
+                    userRegistration.PlotNumbers =plots.PlotNumber;
+                }
+
                 entities.UserInfoes.Add(userRegistration);
+
                 entities.SaveChanges();
 
                 //entities.Configuration.ProxyCreationEnabled = false;
@@ -259,10 +278,17 @@ namespace CondourApp.Controllers
             return View(singleUser);
            // return View();
         }
-       // [HttpPost]
+        // [HttpPost]
         //public ActionResult ShowLoginUserDetails(FormCollection userName)
         //{
         //    return View();
         //}
+
+        public ActionResult NextClickGeneratepartialView()
+        {
+
+            return PartialView("~/Views/PlotDetails_PartialView.cshtml");
+        }
+
     }
 }

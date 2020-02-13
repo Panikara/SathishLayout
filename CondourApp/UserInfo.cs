@@ -31,7 +31,9 @@ namespace CondourApp
         public string Comments { get; set; }
         public string Attachments { get; set; }
         public string Status { get; set; }
+        public Nullable<int> PlotNumbers { get; set; }
     
         public virtual Role Role { get; set; }
+        public virtual PlotDetail PlotDetail { get; set; }
     }
 }

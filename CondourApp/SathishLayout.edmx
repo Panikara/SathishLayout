@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SathishLayoutModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PlotDetails">
+          <Key>
+            <PropertyRef Name="PlotNumber" />
+          </Key>
+          <Property Name="PlotNumber" Type="int" Nullable="false" />
+          <Property Name="Area" Type="nvarchar" MaxLength="250" />
+          <Property Name="DocumentNumber" Type="int" />
+          <Property Name="YearOfRegistration" Type="int" />
+          <Property Name="RegistrationOffice" Type="nvarchar" MaxLength="250" />
+          <Property Name="PlotDocumentPhoto" Type="nvarchar" MaxLength="500" />
+          <Property Name="Nominee" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -33,7 +45,20 @@
           <Property Name="Comments" Type="nvarchar" MaxLength="500" />
           <Property Name="Attachments" Type="nvarchar" MaxLength="800" />
           <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="PlotNumbers" Type="int" />
         </EntityType>
+        <Association Name="FK__UserInfo__PlotNu__15502E78">
+          <End Role="PlotDetails" Type="Self.PlotDetails" Multiplicity="0..1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlotDetails">
+              <PropertyRef Name="PlotNumber" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="PlotNumbers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
@@ -47,8 +72,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="SathishLayoutModelStoreContainer">
+          <EntitySet Name="PlotDetails" EntityType="Self.PlotDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__UserInfo__PlotNu__15502E78" Association="Self.FK__UserInfo__PlotNu__15502E78">
+            <End Role="PlotDetails" EntitySet="PlotDetails" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
           <AssociationSet Name="FK__UserInfo__RoleId__1273C1CD" Association="Self.FK__UserInfo__RoleId__1273C1CD">
             <End Role="Role" EntitySet="Role" />
             <End Role="UserInfo" EntitySet="UserInfo" />
@@ -63,6 +93,11 @@
           <EntitySet Name="UserInfoes" EntityType="SathishLayoutModel.UserInfo" />
           <AssociationSet Name="FK__UserInfo__RoleId__1273C1CD" Association="SathishLayoutModel.FK__UserInfo__RoleId__1273C1CD">
             <End Role="Role" EntitySet="Roles" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <EntitySet Name="PlotDetails" EntityType="SathishLayoutModel.PlotDetail" />
+          <AssociationSet Name="FK__UserInfo__PlotNu__15502E78" Association="SathishLayoutModel.FK__UserInfo__PlotNu__15502E78">
+            <End Role="PlotDetail" EntitySet="PlotDetails" />
             <End Role="UserInfo" EntitySet="UserInfoes" />
           </AssociationSet>
         </EntityContainer>
@@ -96,6 +131,8 @@
           <Property Name="Comments" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Attachments" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PlotNumbers" Type="Int32" />
+          <NavigationProperty Name="PlotDetail" Relationship="SathishLayoutModel.FK__UserInfo__PlotNu__15502E78" FromRole="UserInfo" ToRole="PlotDetail" />
         </EntityType>
         <Association Name="FK__UserInfo__RoleId__1273C1CD">
           <End Type="SathishLayoutModel.Role" Role="Role" Multiplicity="0..1" />
@@ -106,6 +143,31 @@
             </Principal>
             <Dependent Role="UserInfo">
               <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PlotDetail">
+          <Key>
+            <PropertyRef Name="PlotNumber" />
+          </Key>
+          <Property Name="PlotNumber" Type="Int32" Nullable="false" />
+          <Property Name="Area" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentNumber" Type="Int32" />
+          <Property Name="YearOfRegistration" Type="Int32" />
+          <Property Name="RegistrationOffice" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PlotDocumentPhoto" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Nominee" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserInfoes" Relationship="SathishLayoutModel.FK__UserInfo__PlotNu__15502E78" FromRole="PlotDetail" ToRole="UserInfo" />
+        </EntityType>
+        <Association Name="FK__UserInfo__PlotNu__15502E78">
+          <End Type="SathishLayoutModel.PlotDetail" Role="PlotDetail" Multiplicity="0..1" />
+          <End Type="SathishLayoutModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PlotDetail">
+              <PropertyRef Name="PlotNumber" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="PlotNumbers" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -126,6 +188,7 @@
           <EntitySetMapping Name="UserInfoes">
             <EntityTypeMapping TypeName="SathishLayoutModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="PlotNumbers" ColumnName="PlotNumbers" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Attachments" ColumnName="Attachments" />
                 <ScalarProperty Name="Comments" ColumnName="Comments" />
@@ -143,6 +206,19 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PlotDetails">
+            <EntityTypeMapping TypeName="SathishLayoutModel.PlotDetail">
+              <MappingFragment StoreEntitySet="PlotDetails">
+                <ScalarProperty Name="Nominee" ColumnName="Nominee" />
+                <ScalarProperty Name="PlotDocumentPhoto" ColumnName="PlotDocumentPhoto" />
+                <ScalarProperty Name="RegistrationOffice" ColumnName="RegistrationOffice" />
+                <ScalarProperty Name="YearOfRegistration" ColumnName="YearOfRegistration" />
+                <ScalarProperty Name="DocumentNumber" ColumnName="DocumentNumber" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="PlotNumber" ColumnName="PlotNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

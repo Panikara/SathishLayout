@@ -27,5 +27,6 @@ namespace CondourApp
     
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<PlotDetail> PlotDetails { get; set; }
     }
 }

@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="SathishLayoutModel.Role" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="SathishLayoutModel.UserInfo" Width="1.5" PointX="3" PointY="0.875" />
         <AssociationConnector Association="SathishLayoutModel.FK__UserInfo__RoleId__1273C1CD" />
+        <EntityTypeShape EntityType="SathishLayoutModel.PlotDetail" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="SathishLayoutModel.FK__UserInfo__PlotNu__15502E78" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
