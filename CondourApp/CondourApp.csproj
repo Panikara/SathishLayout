@@ -510,6 +510,7 @@
     <Content Include="Views\Admin\StatusPage.cshtml" />
     <Content Include="Views\Home\UserDetails.cshtml" />
     <Content Include="Views\PlotDetails_PartialView.cshtml" />
+    <Content Include="Views\Shared\PartialView_DisplayDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

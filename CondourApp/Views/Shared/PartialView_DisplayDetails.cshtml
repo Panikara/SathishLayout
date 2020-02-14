@@ -1,0 +1,60 @@
+﻿@model CondourApp.PlotDetail
+
+<div>
+    <h4>PlotDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Area)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Area)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocumentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocumentNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YearOfRegistration)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YearOfRegistration)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationOffice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlotDocumentPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nominee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nominee)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlotNumber }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
