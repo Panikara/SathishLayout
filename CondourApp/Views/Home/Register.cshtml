@@ -15,44 +15,41 @@
     <div class="card-box">
         <div class="row">
             <div class="col-md-6">
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div class="input-container">
-                            @*<i class="fa fa-user icon"></i>*@
-                            @Html.EditorFor(model => model.UserName,new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return alphaOnly(event);" } })
-                            @*<input type="text" class="form-control" required onkeypress="return alphaOnly(event);"/>*@
+                            @*@Html.EditorFor(model => model.UserName,new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return alphaOnly(event);" } })*@
+                            <input type="text" class="form-control" name="UserName" required onkeypress="return alphaOnly(event);" />
                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
 
-               
+
 
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.AadharNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.AadharNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "12" } })
-
-                        @*<input type="text" class="form-control" required maxlength="12" onkeypress="return isNumberKey(event)" />*@
+                        @*@Html.EditorFor(model => model.AadharNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "12" } })*@
+                        <input type="text" class="form-control" name="AadharNumber" required maxlength="12" onkeypress="return isNumberKey(event)" />
                         @Html.ValidationMessageFor(model => model.AadharNumber, "", new { @class = "text-danger" })
-
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.PrimaryContactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.PrimaryContactNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "10" } })
-
-                        @*<input type="text" class="form-control" required maxlength="10" onkeypress="return isNumberKey(event)" />*@
-
+                        @*@Html.EditorFor(model => model.PrimaryContactNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "10" } })*@
+                        <input type="text" class="form-control" name="PrimaryContactNumber" required maxlength="10" onkeypress="return isNumberKey(event)" />
                         @Html.ValidationMessageFor(model => model.PrimaryContactNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -70,22 +67,14 @@
                         @Html.ValidationMessageFor(model => model.Attachments, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.Venture, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Venture, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                        @Html.ValidationMessageFor(model => model.Venture, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
             </div>
+
             <div class="col-md-6">
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2", placeholder = "Password", @type = "Password" })
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2", placeholder = "Password" })
                     <div class="col-md-10">
-                        @*<i class="fa fa-key icon"></i>*@
-                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", required = "required", @type = "Password" } })
                         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -93,7 +82,6 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @*<i class="fa fa-envelope icon"></i>*@
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                     </div>
@@ -102,9 +90,8 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.AltContactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.AltContactNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "10" } })
-                        @*<input type="text" class="form-control" required maxlength="10" onkeypress="return isNumberKey(event)" />*@
-
+                        @*@Html.EditorFor(model => model.AltContactNumber, new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return isNumberKey(event)", @maxlength = "10" } })*@
+                        <input type="text" class="form-control" name="AltContactNumber" required maxlength="10" onkeypress="return isNumberKey(event)" />
                         @Html.ValidationMessageFor(model => model.AltContactNumber, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -126,13 +113,6 @@
                     </div>
                 </div>
 
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PlotNumber, new { htmlAttributes = new { @class = "form-control", required = "required" } })
-                        @Html.ValidationMessageFor(model => model.PlotNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -142,24 +122,6 @@
                         @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                     </div>
                 </div>
-
-               
-
-             
-                @*<div class="form-group">
-                    @Html.LabelFor(model => model.Nominees, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Nominees, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Nominees, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
-
-                
-
-          
-
-
-
             </div>
         </div>
 
@@ -167,17 +129,6 @@
         @{
             Html.RenderPartial("~/Views/PlotDetails_PartialView.cshtml");
         }
-
-        @*<div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                @*<input type="button" value="+Add Other PlotDetails" class="btn btn-success" id="btnAdd" />*@
-                @*<button id="btnAdd">+Add Other PlotDetails</button>*@
-                @*@Html.ActionLink("PartialViewGenerator", "NextClickGeneratepartialView", "Home")*@
-        
-
-        @*<div id="nextRenderPartialView">
-           
-        </div>*@
 
         <div class="row" style="">
             <div class="form-group">
@@ -189,7 +140,7 @@
         </div>
 
     </div>
-                }
+  }
 
 
 
@@ -197,8 +148,8 @@
 <script src="~/scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
     function alphaOnly(event) {
-         var key = event.keyCode;
-         return ((key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key == 8);
+        var key = event.keyCode;
+        return ((key >= 65 && key <= 90) || (key >= 97 && key <= 122) || key == 8);
     };
 
     function isNumberKey(evt) {
@@ -209,7 +160,7 @@
     }
 
     $(document).ready(function () {
-       
+
     });
 </script>
 
