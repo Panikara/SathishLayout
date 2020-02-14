@@ -6,90 +6,100 @@
 
 
     <h4>PlotDetails</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PlotNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.PlotNumber, "", new { @class = "text-danger" })
-                    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PlotNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PlotNumber, "", new { @class = "text-danger" })
                 </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DocumentNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DocumentNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.YearOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.YearOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.YearOfRegistration, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
             </div>
 
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RegistrationOffice, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.RegistrationOffice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })
-                    </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
                 </div>
-
-              
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PlotDocumentPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                      
-                        <input type="file" name="postedFile" required />
-                        @Html.ValidationMessageFor(model => model.PlotDocumentPhoto, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Nominee, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Nominee, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Nominee, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                    
-                        <button id="btnAdd"class="btn btn-success">+Add Other PlotDetails</button>
-                        <button id="btnRemove" class="btn btn-danger" style="visibility:hidden">Remove</button>
-                        
-                      
-                    </div>
-                </div>
-
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DocumentNumber, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DocumentNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.YearOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.YearOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.YearOfRegistration, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
         </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.RegistrationOffice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.RegistrationOffice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })*@
+
+ 
+
+                    @Html.DropDownListFor(model => model.RegistrationOffice, new List<SelectListItem>
+                   {
+                    new SelectListItem{ Text="Medchal", Value = "Medchal" },
+                    new SelectListItem{ Text="Hyderabad", Value = "Hyderabad" },
+
+                   new SelectListItem{ Text="kudlapura", Value = "kudlapura" }}, "Please select Registration Office",new { @class = "form-control" } )
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PlotDocumentPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    <input type="file" name="postedFile" required />
+                    @Html.ValidationMessageFor(model => model.PlotDocumentPhoto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nominee, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nominee, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nominee, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <button id="btnAdd" class="btn btn-success">+Add Other PlotDetails</button>
+                    <button id="btnRemove" class="btn btn-danger" style="visibility:hidden">Remove</button>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 }
 <div id="nextRenderPartialView">
-    
+
 </div>
 
 
@@ -103,20 +113,21 @@
             $("#btnRemove").css('visibility', 'visible');
         });
         $("#btnRemove").click(function () {
-          
+
 
             alert("Are You Sure To Remove")
-            $(this).css('display','disabled');
+            $(this).css('display', 'disabled');
             $('#nextRenderPartialView').hide();
 
         })
     });
 </script>
 <style>
-    .next{
-        visibility:visible
+    .next {
+        visibility: visible;
     }
-    .btnaddd{
-         visibility:hidden
+
+    .btnaddd {
+        visibility: hidden;
     }
 </style>

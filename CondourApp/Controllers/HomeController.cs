@@ -198,7 +198,7 @@ namespace CondourApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,List<PlotDetail> plotInfo)
+        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,PlotDetail plotInfo)
         {
             SathishLayoutEntities entities = new SathishLayoutEntities();
 
@@ -208,9 +208,9 @@ namespace CondourApp.Controllers
                 Directory.CreateDirectory(path);
             }
 
-           // List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
+           List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
 
-           // PlotCompleteInfo.Add(plotInfo);
+           PlotCompleteInfo.Add(plotInfo);
            
 
             if (Request.Files.Count > 0)
@@ -228,7 +228,7 @@ namespace CondourApp.Controllers
 
                
 
-                foreach(var plots in plotInfo)
+                foreach(var plots in PlotCompleteInfo)
                 {
                     entities.PlotDetails.Add(plots);
                     userRegistration.PlotNumbers =plots.PlotNumber;
