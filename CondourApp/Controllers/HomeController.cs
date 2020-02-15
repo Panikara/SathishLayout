@@ -275,6 +275,11 @@ namespace CondourApp.Controllers
         {
             SathishLayoutEntities dbContext = new SathishLayoutEntities();
             UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
+            //if (userName == singleUser.UserName)
+            //{
+            //    return RedirectToAction("PartialViewDisplay", "Home", new { userName =singleUser.UserName });
+
+            //}
             return View(singleUser);
            // return View();
         }
@@ -290,5 +295,12 @@ namespace CondourApp.Controllers
             return PartialView("~/Views/PlotDetails_PartialView.cshtml");
         }
 
+        public ActionResult PartialViewDisplay(string userName)
+        {
+            SathishLayoutEntities dbContext = new SathishLayoutEntities();
+            UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
+            PlotDetail Singleplot = dbContext.PlotDetails.Where(s => s.PlotNumber == singleUser.PlotNumbers).FirstOrDefault();
+            return View(Singleplot);
+        }
     }
 }

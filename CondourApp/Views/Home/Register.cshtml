@@ -6,7 +6,7 @@
 
 <h2>Register</h2>
 
-@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data",@class="needs-validation" }))
 {
     @Html.AntiForgeryToken()
 
@@ -21,7 +21,12 @@
                     <div class="col-md-10">
                         <div class="input-container">
                             @*@Html.EditorFor(model => model.UserName,new { htmlAttributes = new { @class = "form-control", required = "required", @onkeypress = "return alphaOnly(event);" } })*@
-                            <input type="text" class="form-control" name="UserName" required onkeypress="return alphaOnly(event);" />
+                            <input type="text" class="form-control" name="UserName" required onkeypress="return alphaOnly(event);" id="validationCustomUsername" aria-describedby="inputGroupPrepend" />
+
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+
                             @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -140,7 +145,7 @@
         </div>
 
     </div>
-  }
+}
 
 
 
@@ -162,6 +167,25 @@
     $(document).ready(function () {
 
     });
+
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
 </script>
 
 

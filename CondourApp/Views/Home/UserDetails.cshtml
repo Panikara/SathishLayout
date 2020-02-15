@@ -141,13 +141,17 @@
            
         </div>
     </div>
+
         @{
-            Html.RenderPartial("~/Shared/PartialView_DisplayDetails");
+            //string plotNums = @Model.PlotNumbers;
+            //int[]  plaotNumColl = plotNums.Split(',');
+            //foreach (int plotNum in plaotNumColl)
+            //{
+            Html.RenderAction("PartialViewDisplay", "Home");
+           // }
         }
         
 
 </div>
 </div>
-<p>
-   
-</p>
+

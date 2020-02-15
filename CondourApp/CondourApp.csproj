@@ -443,6 +443,7 @@
     </Compile>
     <Compile Include="Models\Account\Membership.cs" />
     <Compile Include="Models\Account\RoleProvider.cs" />
+    <Compile Include="Models\Account\User.cs" />
     <Compile Include="Models\Automation\IEGlobal.cs" />
     <Compile Include="Models\Automation\IEKanoon.cs" />
     <Compile Include="Models\Automation\IELinkedin.cs" />
@@ -510,7 +511,7 @@
     <Content Include="Views\Admin\StatusPage.cshtml" />
     <Content Include="Views\Home\UserDetails.cshtml" />
     <Content Include="Views\PlotDetails_PartialView.cshtml" />
-    <Content Include="Views\Shared\PartialView_DisplayDetails.cshtml" />
+    <Content Include="Views\Home\PartialViewDisplay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
