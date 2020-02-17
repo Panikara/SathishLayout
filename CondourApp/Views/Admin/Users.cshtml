@@ -46,7 +46,12 @@
                             <td>@item.Status</td>
                             <td>
                                 @*@Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })*@
-                                @Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName }, null)
+
+                                @Html.ActionLink("PlotDetails", "PartialViewDisplay", "Home", new { userName = item.UserName,@class= "btn btn-primary" }, null)|
+
+                                @Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName, @class = "btn btn-primary" }, null)
+
+                              
                                 @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@
                                 @*@Html.ActionLink("Delete", "DeleteApplicationUser", new { id ="admin1"},
                                     new { onclick = "return confirm('Are sure wants to delete?');" })*@

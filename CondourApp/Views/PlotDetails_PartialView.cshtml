@@ -91,7 +91,7 @@
                 <div class="col-md-offset-2 col-md-10">
 
                     <button id="btnAdd" class="btn btn-success">+Add Other PlotDetails</button>
-                    <button id="btnRemove" class="btn btn-danger" style="visibility:hidden">Remove</button>
+                   
 
 
                 </div>
@@ -101,8 +101,10 @@
     </div>
 
 }
-<div id="nextRenderPartialView">
 
+
+<div id="nextRenderPartialView">
+   
 </div>
 
 
@@ -110,9 +112,9 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btnAdd').click(function () {
-            $(this).css('display', 'none');
+          
             $('#nextRenderPartialView').load('@Url.Action("NextClickGeneratepartialView", "Home")');
-            $("##btnRemove").css('display', 'disabled');
+            $("##btnAdd1").css('display', 'none');
             $("#btnRemove").css('visibility', 'visible');
         });
         $("#btnRemove").click(function () {

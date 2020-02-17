@@ -198,7 +198,7 @@ namespace CondourApp.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,PlotDetail plotInfo)
+        public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,List<PlotDetail> plotInfo,FormCollection coll)
         {
             SathishLayoutEntities entities = new SathishLayoutEntities();
 
@@ -210,7 +210,7 @@ namespace CondourApp.Controllers
 
            List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
 
-           PlotCompleteInfo.Add(plotInfo);
+        //   PlotCompleteInfo.Add(plotInfo);
            
 
             if (Request.Files.Count > 0)
