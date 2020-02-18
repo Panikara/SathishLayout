@@ -1,6 +1,6 @@
-﻿@model CondourApp.PlotDetail
-
-@using (Html.BeginForm())
+﻿@using HtmlHelpers.BeginCollectionItem;
+@model CondourApp.PlotDetail
+@using (Html.BeginCollectionItem("PlotColl"))
 {
     @Html.AntiForgeryToken()
 
@@ -54,7 +54,7 @@
                     @*@Html.EditorFor(model => model.RegistrationOffice, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })*@
 
- 
+
 
                     @Html.DropDownListFor(model => model.RegistrationOffice, new List<SelectListItem>
                    {
@@ -90,8 +90,8 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
 
-                    <button id="btnAdd" class="btn btn-success">+Add Other PlotDetails</button>
-                   
+                    <button id="btnAdd" class="btn btn-success">+Add PlotDetails</button>
+
 
 
                 </div>
@@ -104,7 +104,7 @@
 
 
 <div id="nextRenderPartialView">
-   
+
 </div>
 
 
@@ -112,7 +112,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#btnAdd').click(function () {
-          
+
             $('#nextRenderPartialView').load('@Url.Action("NextClickGeneratepartialView", "Home")');
             $("##btnAdd1").css('display', 'none');
             $("#btnRemove").css('visibility', 'visible');
