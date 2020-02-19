@@ -458,7 +458,6 @@
     <Compile Include="Models\DB\CommonDBOperations.cs" />
     <Compile Include="Models\DB\UserDBOperations.cs" />
     <Compile Include="Models\Logger\Library.cs" />
-    <Compile Include="Models\Registration\RegistrationModels.cs" />
     <Compile Include="PlotDetail.cs">
       <DependentUpon>SathishLayout.tt</DependentUpon>
     </Compile>
@@ -527,6 +526,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\Admin\" />
+    <Folder Include="Models\Registration\" />
     <Folder Include="scripts\App1\" />
     <Folder Include="UploadImages\" />
     <Folder Include="Views\Checker\" />

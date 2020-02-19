@@ -200,7 +200,10 @@ namespace CondourApp.Controllers
         [HttpPost]
         public ActionResult Register(UserInfo userRegistration,HttpPostedFileBase postedFile,List<PlotDetail> plotInfo,FormCollection coll)
         {
+            //string AREA;
             SathishLayoutEntities entities = new SathishLayoutEntities();
+
+            
 
             string path = Server.MapPath("~/UploadImages/");
             if (!Directory.Exists(path))
@@ -208,7 +211,7 @@ namespace CondourApp.Controllers
                 Directory.CreateDirectory(path);
             }
 
-           List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
+          
 
         //   PlotCompleteInfo.Add(plotInfo);
            
@@ -223,15 +226,82 @@ namespace CondourApp.Controllers
                userRegistration.UserId = Guid.NewGuid();
                 userRegistration.Status = "In progress";
 
-               
-                
+
+                List<PlotDetail> PlotCompleteInfo = new List<PlotDetail>();
+
+
 
                
+
+
+                foreach (var key in coll.AllKeys)
+                {
+
+                    var example = Request.Form[11];
+
+                    var split1 = example.Split(',')[0];
+
+                    var split2 = example.Split(',')[1];
+
+                    if (Request.Form[11] != null)
+                    {
+                        int plotnumber =Convert.ToInt32(split1);
+                        string AREA = Request.Form[12];
+                        int Year = Convert.ToInt32(Request.Form[14]);
+                        int DocNumber = Convert.ToInt32(Request.Form[13]);
+                        string RegistrationOffice = Request.Form[15];
+                        string Nominee = Request.Form[16];
+
+                        int plotnumber1 = Convert.ToInt32(split1);
+                        string AREA1 = Request.Form[17];
+                        int Year1 = Convert.ToInt32(Request.Form[19]);
+                        int DocNumber1 = Convert.ToInt32(Request.Form[18]);
+                        string RegistrationOffice1 = Request.Form[20];
+                        string Nominee1 = Request.Form[21];
+
+                        PlotCompleteInfo.Add(new PlotDetail()
+                        {
+                            //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
+                            PlotNumber = plotnumber,
+                            Area = AREA,
+                            DocumentNumber = DocNumber,
+                            YearOfRegistration = Year,
+                            RegistrationOffice = RegistrationOffice,
+                            // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
+                            // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
+                            Nominee = Nominee,
+                            PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
+                        });
+
+                        PlotCompleteInfo.Add(new PlotDetail()
+                        {
+                            //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
+                            PlotNumber = plotnumber1,
+                            Area = AREA1,
+                            DocumentNumber = DocNumber1,
+                            YearOfRegistration = Year1,
+                            RegistrationOffice = RegistrationOffice1,
+                            // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
+                            // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
+                            Nominee = Nominee1,
+                            PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
+                        });
+                    }
+                       
+
+                    }
+
+
+                    //  PlotCompleteInfo.Add(coll[key]);
+                    //var value = oCollection[key];
+                
 
                 foreach(var plots in PlotCompleteInfo)
                 {
+                    if (plots.PlotNumber != 0) { 
                     entities.PlotDetails.Add(plots);
-                    userRegistration.PlotNumbers =plots.PlotNumber;
+                    }
+                    //userRegistration.PlotNumbers =plots.PlotNumber;
                 }
 
                 entities.UserInfoes.Add(userRegistration);
