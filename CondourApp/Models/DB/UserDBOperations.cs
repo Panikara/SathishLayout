@@ -14,7 +14,7 @@ namespace CondourApp.Models.DB
             UserInfo user = new UserInfo();
             try
             {
-                using (SathishLayoutEntities db = new SathishLayoutEntities())
+                using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
                 {
                     
       user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).Where(u => u.Password == pwd).FirstOrDefault();
@@ -42,7 +42,7 @@ namespace CondourApp.Models.DB
         {
             try
             {
-                using (SathishLayoutEntities db = new SathishLayoutEntities())
+                using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
                 {
                     UserInfo user = db.UserInfoes.Find(id);
                     if (user != null)
@@ -64,7 +64,7 @@ namespace CondourApp.Models.DB
             string[] roleColl = new string[1];
             try
             {
-                using (SathishLayoutEntities db = new SathishLayoutEntities())
+                using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
                 {
 
         UserInfo   user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).FirstOrDefault();
@@ -86,7 +86,7 @@ namespace CondourApp.Models.DB
             bool isUserInRole = false;
             try
             {
-                using (SathishLayoutEntities db = new SathishLayoutEntities())
+                using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
                 {
 
       UserInfo user = db.UserInfoes.Where(u => u.UserName.ToLower() == userName.ToLower()).

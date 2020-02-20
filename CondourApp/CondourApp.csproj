@@ -361,15 +361,15 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="SathishLayout.Context.tt">
+    <Content Include="SathishLayOutInfo.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SathishLayout.edmx</DependentUpon>
-      <LastGenOutput>SathishLayout.Context.cs</LastGenOutput>
+      <DependentUpon>SathishLayOutInfo.edmx</DependentUpon>
+      <LastGenOutput>SathishLayOutInfo.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="SathishLayout.tt">
+    <Content Include="SathishLayOutInfo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SathishLayout.edmx</DependentUpon>
-      <LastGenOutput>SathishLayout.cs</LastGenOutput>
+      <DependentUpon>SathishLayOutInfo.edmx</DependentUpon>
+      <LastGenOutput>SathishLayOutInfo.cs</LastGenOutput>
     </Content>
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -406,14 +406,14 @@
     <Content Include="Content\App1\assets\plugins\summernote\font\summernote291f.ttf" />
     <Content Include="Content\App1\assets\plugins\summernote\font\summernote291f.woff" />
     <Content Include="Content\App1\assets\plugins\summernote\font\summernoted41d.eot" />
-    <EntityDeploy Include="SathishLayout.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SathishLayout.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="SathishLayout.edmx.diagram">
-      <DependentUpon>SathishLayout.edmx</DependentUpon>
-    </Content>
     <Content Include="ClassDiagram1.cd" />
+    <EntityDeploy Include="SathishLayOutInfo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SathishLayOutInfo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="SathishLayOutInfo.edmx.diagram">
+      <DependentUpon>SathishLayOutInfo.edmx</DependentUpon>
+    </Content>
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\datatable\jquery.app.js" />
     <Content Include="scripts\datatable\jquery.core.js" />
@@ -458,30 +458,30 @@
     <Compile Include="Models\DB\CommonDBOperations.cs" />
     <Compile Include="Models\DB\UserDBOperations.cs" />
     <Compile Include="Models\Logger\Library.cs" />
-    <Compile Include="PlotDetail.cs">
-      <DependentUpon>SathishLayout.tt</DependentUpon>
+    <Compile Include="PlotDetailsInfo.cs">
+      <DependentUpon>SathishLayOutInfo.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs">
-      <DependentUpon>SathishLayout.tt</DependentUpon>
+      <DependentUpon>SathishLayOutInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="SathishLayout.Context.cs">
+    <Compile Include="SathishLayOutInfo.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SathishLayout.Context.tt</DependentUpon>
+      <DependentUpon>SathishLayOutInfo.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="SathishLayout.cs">
+    <Compile Include="SathishLayOutInfo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SathishLayout.tt</DependentUpon>
+      <DependentUpon>SathishLayOutInfo.tt</DependentUpon>
     </Compile>
-    <Compile Include="SathishLayout.Designer.cs">
+    <Compile Include="SathishLayOutInfo.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SathishLayout.edmx</DependentUpon>
+      <DependentUpon>SathishLayOutInfo.edmx</DependentUpon>
     </Compile>
     <Compile Include="UserInfo.cs">
-      <DependentUpon>SathishLayout.tt</DependentUpon>
+      <DependentUpon>SathishLayOutInfo.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -514,8 +514,8 @@
     <Content Include="Views\Admin\StatusPage.cshtml" />
     <Content Include="Views\Home\UserDetails.cshtml" />
     <Content Include="Views\PlotDetails_PartialView.cshtml" />
-    <Content Include="Views\Home\PartialViewDisplay.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
+    <Content Include="Views\Home\PartialViewDisplay.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

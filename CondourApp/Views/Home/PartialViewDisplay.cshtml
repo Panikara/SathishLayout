@@ -1,97 +1,66 @@
-﻿@model CondourApp.PlotDetail
-
-<div>
-    <h4>PlotDetail</h4>
-
-    <div class="card-box">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PlotNumber, new { htmlAttributes = new { @class = "form-control",@ID="" } })
-
-                        @*<input type="text" class="form-control" name="PlotNumber"/>*@
-
-                        @Html.ValidationMessageFor(model => model.PlotNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.DocumentNumber, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.DocumentNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.YearOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.YearOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.YearOfRegistration, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group">
-                    @Html.LabelFor(model => model.RegistrationOffice, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.RegistrationOffice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })
+﻿@model IEnumerable<CondourApp.PlotDetailsInfo>
 
 
+<div class="card-box">
+    <div class="row">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlotNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DocumentNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.YearOfRegistration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RegistrationOffice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nominee)
+                </th>
+               
+                <th></th>
+            </tr>
 
-                        @*@Html.DropDownListFor(model => model.RegistrationOffice, new List<SelectListItem>
-                               {
-                                new SelectListItem{ Text="Medchal", Value = "Medchal" },
-                                new SelectListItem{ Text="Hyderabad", Value = "Hyderabad" },
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlotNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DocumentNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.YearOfRegistration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegistrationOffice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nominee)
+                </td>
+                
 
-                               new SelectListItem{ Text="kudlapura", Value = "kudlapura" }}, "Please select Registration Office", new { @class = "form-control" })
+            </tr>
+            }
 
-                            </div>*@
-                    </div>
-
-
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.PlotDocumentPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-
-                            <input type="file" name="postedFile" required />
-                            @Html.ValidationMessageFor(model => model.PlotDocumentPhoto, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Nominee, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Nominee, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Nominee, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-        </div>
+        </table>
     </div>
-    <p>
 
-
-        @Html.ActionLink("Back to List", "GetUsers", "Admin", new { @class = "btn btn-primary" },null)
-    </p>
 </div>
-
+@Html.ActionLink("Back to List", "GetUsers", "Admin", new { @class = "btn btn-primary" }, null)

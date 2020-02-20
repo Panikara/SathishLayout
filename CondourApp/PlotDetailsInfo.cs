@@ -12,21 +12,22 @@ namespace CondourApp
     using System;
     using System.Collections.Generic;
     
-    public partial class PlotDetail
+    public partial class PlotDetailsInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PlotDetail()
+        public PlotDetailsInfo()
         {
             this.UserInfoes = new HashSet<UserInfo>();
         }
     
-        public int PlotNumber { get; set; }
+        public string PlotNumber { get; set; }
         public string Area { get; set; }
         public Nullable<int> DocumentNumber { get; set; }
         public Nullable<int> YearOfRegistration { get; set; }
         public string RegistrationOffice { get; set; }
         public string PlotDocumentPhoto { get; set; }
         public string Nominee { get; set; }
+        public string UserName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserInfo> UserInfoes { get; set; }

@@ -18,12 +18,11 @@ namespace CondourApp
         public string UserName { get; set; }
         public string Password { get; set; }
         public Nullable<int> RoleId { get; set; }
-        public Nullable<int> AadharNumber { get; set; }
+        public Nullable<long> AadharNumber { get; set; }
         public Nullable<long> PrimaryContactNumber { get; set; }
         public string Email { get; set; }
         public string FatherName { get; set; }
         public string Venture { get; set; }
-        public Nullable<int> PlotNumber { get; set; }
         public string Address { get; set; }
         public string Gender { get; set; }
         public Nullable<long> AltContactNumber { get; set; }
@@ -31,9 +30,10 @@ namespace CondourApp
         public string Comments { get; set; }
         public string Attachments { get; set; }
         public string Status { get; set; }
-        public Nullable<int> PlotNumbers { get; set; }
+        public Nullable<int> PlotNumber { get; set; }
+        public string PlotNumbers { get; set; }
     
+        public virtual PlotDetailsInfo PlotDetailsInfo { get; set; }
         public virtual Role Role { get; set; }
-        public virtual PlotDetail PlotDetail { get; set; }
     }
 }

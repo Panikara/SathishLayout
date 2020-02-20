@@ -13,10 +13,10 @@ namespace CondourApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SathishLayoutEntities : DbContext
+    public partial class SathishLayoutEntities1 : DbContext
     {
-        public SathishLayoutEntities()
-            : base("name=SathishLayoutEntities")
+        public SathishLayoutEntities1()
+            : base("name=SathishLayoutEntities1")
         {
         }
     
@@ -25,8 +25,8 @@ namespace CondourApp
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<PlotDetailsInfo> PlotDetailsInfoes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
-        public virtual DbSet<PlotDetail> PlotDetails { get; set; }
     }
 }

@@ -51,7 +51,7 @@ namespace CondourApp.Models.DB
         //}
         public List<UserInfo> GetAllUserDetails()
         {
-            using (SathishLayoutEntities db = new SathishLayoutEntities())
+            using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
             {
                 List<UserInfo> lstUSer = db.UserInfoes.ToList();
                 return (lstUSer);
@@ -101,7 +101,7 @@ namespace CondourApp.Models.DB
         //}
         public void DeleteApplicationUser(int id)
         {
-            using (SathishLayoutEntities db = new SathishLayoutEntities())
+            using (SathishLayoutEntities1 db = new SathishLayoutEntities1())
             {
             //   Application userapp= db.Applications.Find(id);
               //  db.Applications.Remove(userapp);
