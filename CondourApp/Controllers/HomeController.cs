@@ -203,18 +203,28 @@ namespace CondourApp.Controllers
             //string AREA;
             SathishLayoutEntities1 entities = new SathishLayoutEntities1();
 
-
+            string indexColl = coll["PlotColl.index"];
+            string[] plotIndexColl = indexColl.Split(',');
 
             string path = Server.MapPath("~/UploadImages/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
+            foreach(string index in plotIndexColl)
+            {
+                PlotDetailsInfo plotInfo = new PlotDetailsInfo();
+                plotInfo.UserName = userRegistration.UserName;
+                plotInfo.PlotNumber = coll["PlotColl[" + index + "]" + ".PlotNumber"];
+                plotInfo.Area = coll["PlotColl[" + index + "]" + ".Area"];
+                plotInfo.DocumentNumber = Convert.ToInt32(coll["PlotColl[" + index + "]" + ".DocumentNumber"]);
+                plotInfo.YearOfRegistration = Convert.ToInt32(coll["PlotColl[" + index + "]" + ".YearOfRegistration"]);
+                plotInfo.RegistrationOffice = coll["PlotColl[" + index + "]" + ".RegistrationOffice"];
+                plotInfo.Nominee = coll["PlotColl[" + index + "]" + ".Nominee"];
+                plotInfo.PlotDocumentPhoto = coll["PlotColl[" + index + "]" + ".PlotDocumentPhoto"];
+                entities.PlotDetailsInfoes.Add(plotInfo);
 
-
-
-            //   PlotCompleteInfo.Add(plotInfo);
-
+            }
 
             if (Request.Files.Count > 0)
             {
@@ -226,116 +236,12 @@ namespace CondourApp.Controllers
                 userRegistration.UserId = Guid.NewGuid();
                 userRegistration.Status = "In progress";
                 userRegistration.PlotNumber = null;
-                // userRegistration.PlotNumbers = Request.Form[11];
-
-                List<PlotDetailsInfo> PlotCompleteInfo = new List<PlotDetailsInfo>();
-
-
-
-
-
-
-                // foreach (var key in coll.AllKeys)
-                //  {
-
-                var example = Request.Form[11];
-
-                var split1 = example.Split(',')[0];
-
-                var split2 = example.Split(',')[1];
-                //  string plotgroup= split1 + "," + split2;
-                //  userRegistration.PlotNumbers = plotgroup;
-
-                // if (Request.Form[11] != null)
-                // {
-                string plotnumber = split1;
-                string AREA = Request.Form[12];
-                int Year = Convert.ToInt32(Request.Form[14]);
-                int DocNumber = Convert.ToInt32(Request.Form[13]);
-                string RegistrationOffice = Request.Form[15];
-                string Nominee = Request.Form[16];
-
-                string plotnumber1 = split2;
-                string AREA1 = Request.Form[17];
-                int Year1 = Convert.ToInt32(Request.Form[19]);
-                int DocNumber1 = Convert.ToInt32(Request.Form[18]);
-                string RegistrationOffice1 = Request.Form[20];
-                string Nominee1 = Request.Form[21];
-
-                PlotCompleteInfo.Add(new PlotDetailsInfo()
-                {
-                    //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
-                    UserName = userRegistration.UserName,
-                    PlotNumber = plotnumber,
-                    Area = AREA,
-                    DocumentNumber = DocNumber,
-                    YearOfRegistration = Year,
-                    RegistrationOffice = RegistrationOffice,
-                    // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
-                    // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
-                    Nominee = Nominee,
-                    PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
-                });
-
-                PlotCompleteInfo.Add(new PlotDetailsInfo()
-                {
-                    //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
-                    UserName = userRegistration.UserName,
-                    PlotNumber = plotnumber1,
-                    Area = AREA1,
-                    DocumentNumber = DocNumber1,
-                    YearOfRegistration = Year1,
-                    RegistrationOffice = RegistrationOffice1,
-                    // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
-                    // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
-                    Nominee = Nominee1,
-                    PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
-                });
-                // }
-
-
-                //  }
-
-
-                //  PlotCompleteInfo.Add(coll[key]);
-                //var value = oCollection[key];
-                // entities.Configuration.ProxyCreationEnabled = false;
-
-                foreach (var plots in PlotCompleteInfo)
-                {
-                    if (plots.PlotNumber != null)
-                    {
-                        entities.PlotDetailsInfoes.Add(plots);
-                    }
-                    userRegistration.PlotNumbers = plots.PlotNumber;
-
-                }
-
+                
                 entities.UserInfoes.Add(userRegistration);
 
                 entities.SaveChanges();
 
-                //entities.Configuration.ProxyCreationEnabled = false;
-
-                //entities.UserInfoes.Add(new UserInfo
-                //{
-                //    UserName = userRegistration.UserName,
-                //    Password = userRegistration.Password,
-                //    AadharNumber = userRegistration.AadharNumber,
-                //    PrimaryContactNumber = userRegistration.PrimaryContactNumber,
-                //    Email = userRegistration.Email,
-                //    FatherName = userRegistration.FatherName,
-                //    Venture = userRegistration.Venture,
-                //    PlotNumber = userRegistration.PlotNumber,
-                //    Address = userRegistration.Address,
-                //    Gender = userRegistration.Gender,
-                //    AltContactNumber = userRegistration.AltContactNumber,
-                //    Comments = userRegistration.Comments,
-                //    Attachments = filePath
-
-
-                //});
-                //entities.SaveChanges();
+               
             }
 
 
