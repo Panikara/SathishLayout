@@ -57,7 +57,7 @@
 
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FatherName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <label class="control-label col-md-2">S/F,D/F,W/F</label>
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                         @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
@@ -136,12 +136,20 @@
             Html.RenderPartial("~/Views/PlotDetails_PartialView.cshtml");
         }
 
-        <div class="row" style="">
-            <div class="form-group">
+        <div class="row">
 
-                <div class="col-md-offset-4 col-md-4">
-                    <input type="submit" value="Submit" class="btn btn-success btn-lg" />
+            <div class="col-md-4">
+
+            </div>
+
+            
+
+                <div class="col-md-4">
+                    <input type="submit" value="Register" class="btn btn-default btn-lg" style="background-color:orange;width:200px" />
                 </div>
+           
+            <div class="col-md-4">
+
             </div>
         </div>
 

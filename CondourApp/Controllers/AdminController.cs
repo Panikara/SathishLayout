@@ -111,7 +111,17 @@ namespace CondourApp.Controllers
             UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == name).FirstOrDefault();
             return View(singleUser);
         }
-      //  [HttpPost]
+
+        public ActionResult AdminPlotDetails(string userName)
+        {
+            SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
+            //UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
+            List<PlotDetailsInfo> plotDetaisl = dbContext.PlotDetailsInfoes.Where(s => s.UserName == userName).ToList();
+            ViewBag.userName = userName;
+            return View(plotDetaisl);
+          
+        }
+        //  [HttpPost]
         public ActionResult UpdateStatus(string name,string status)
         {
             SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
@@ -138,4 +148,5 @@ namespace CondourApp.Controllers
 
 
     }
+   
 }

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CondourApp.PlotDetailsInfo>
+
+@{
+    ViewBag.Title = "AdminPlotDetails";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <table class="table table-striped table-bordered nowrap display responsive" style="width:100%">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DocumentNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.YearOfRegistration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RegistrationOffice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nominee)
+                    </th>
+
+                   
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DocumentNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.YearOfRegistration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegistrationOffice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nominee)
+                    </td>
+
+
+                </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "GetUsers", "Admin", new { @class = "btn btn-primary" })
+</div>

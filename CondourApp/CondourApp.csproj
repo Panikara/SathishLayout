@@ -516,6 +516,7 @@
     <Content Include="Views\PlotDetails_PartialView.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
     <Content Include="Views\Home\PartialViewDisplay.cshtml" />
+    <Content Include="Views\Admin\AdminPlotDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
