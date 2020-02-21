@@ -203,17 +203,28 @@ namespace CondourApp.Controllers
            
             SathishLayoutEntities1 entities = new SathishLayoutEntities1();
 
-
+            string indexColl = coll["PlotColl.index"];
+            string[] plotIndexColl = indexColl.Split(',');
 
             string path = Server.MapPath("~/UploadImages/");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
+            foreach(string index in plotIndexColl)
+            {
+                PlotDetailsInfo plotInfo = new PlotDetailsInfo();
+                plotInfo.UserName = userRegistration.UserName;
+                plotInfo.PlotNumber = coll["PlotColl[" + index + "]" + ".PlotNumber"];
+                plotInfo.Area = coll["PlotColl[" + index + "]" + ".Area"];
+                plotInfo.DocumentNumber = Convert.ToInt32(coll["PlotColl[" + index + "]" + ".DocumentNumber"]);
+                plotInfo.YearOfRegistration = Convert.ToInt32(coll["PlotColl[" + index + "]" + ".YearOfRegistration"]);
+                plotInfo.RegistrationOffice = coll["PlotColl[" + index + "]" + ".RegistrationOffice"];
+                plotInfo.Nominee = coll["PlotColl[" + index + "]" + ".Nominee"];
+                plotInfo.PlotDocumentPhoto = coll["PlotColl[" + index + "]" + ".PlotDocumentPhoto"];
+                entities.PlotDetailsInfoes.Add(plotInfo);
 
-
-
-        
+            }
 
             if (Request.Files.Count > 0)
             {
@@ -224,87 +235,13 @@ namespace CondourApp.Controllers
                 userRegistration.Attachments = filePath;
                 userRegistration.UserId = Guid.NewGuid();
                 userRegistration.Status = "In progress";
-
-                //userRegistration.PlotNumber = null;
-               
-
-                List<PlotDetailsInfo> PlotCompleteInfo = new List<PlotDetailsInfo>();
-
-
-
-
-
-
-              
-                //  {
-
-                var example = Request.Form[11];
-
-                var split1 = example.Split(',')[0];
-
-                var split2 = example.Split(',')[1];
+                userRegistration.PlotNumber = null;
                 
-                string plotnumber = split1;
-                string AREA = Request.Form[12];
-                int Year = Convert.ToInt32(Request.Form[14]);
-                int DocNumber = Convert.ToInt32(Request.Form[13]);
-                string RegistrationOffice = Request.Form[15];
-                string Nominee = Request.Form[16];
-
-                string plotnumber1 = split2;
-                string AREA1 = Request.Form[17];
-                int Year1 = Convert.ToInt32(Request.Form[19]);
-                int DocNumber1 = Convert.ToInt32(Request.Form[18]);
-                string RegistrationOffice1 = Request.Form[20];
-                string Nominee1 = Request.Form[21];
-
-                PlotCompleteInfo.Add(new PlotDetailsInfo()
-                {
-                   
-                    UserName = userRegistration.UserName,
-                    PlotNumber = plotnumber,
-                    Area = AREA,
-                    DocumentNumber = DocNumber,
-                    YearOfRegistration = Year,
-                    RegistrationOffice = RegistrationOffice,
-                   
-                    Nominee = Nominee,
-                    PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
-                });
-
-                PlotCompleteInfo.Add(new PlotDetailsInfo()
-                {
-                   
-                    UserName = userRegistration.UserName,
-                    PlotNumber = plotnumber1,
-                    Area = AREA1,
-                    DocumentNumber = DocNumber1,
-                    YearOfRegistration = Year1,
-                    RegistrationOffice = RegistrationOffice1,
-                  
-                    Nominee = Nominee1,
-                    PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
-                });
-            
-
-
-             
-                // entities.Configuration.ProxyCreationEnabled = false;
-
-                foreach (var plots in PlotCompleteInfo)
-                {
-                    if (plots.PlotNumber != null)
-                    {
-                        entities.PlotDetailsInfoes.Add(plots);
-                    }
-                    userRegistration.PlotNumbers = plots.PlotNumber;
-
-                }
-
                 entities.UserInfoes.Add(userRegistration);
 
                 entities.SaveChanges();
 
+               
             }
 
 
