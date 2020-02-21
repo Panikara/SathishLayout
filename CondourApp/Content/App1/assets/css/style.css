@@ -36,11 +36,16 @@ body {
   overflow-x: hidden;
   font-size: 14px;
 }
-
+a {
+    color: #202f43 !important
+}
+    a:hover {
+        color: #202f43 !important
+    }
 html {
-  position: relative;
-  min-height: 100%;
-  background: #ebeff2;
+    position: relative;
+    min-height: 100%;
+    background: #ebeff2;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1372,16 +1377,16 @@ pre {
 }
 
 .btn-primary {
-  background-color: #188ae2 !important;
-  border: 1px solid #188ae2 !important;
+    background-color: #ff7701 !important;
+    border: 1px solid #ff7701 !important;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
-.btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover,
-.open > .dropdown-toggle.btn-primary {
-  background-color: #167ccb !important;
-  border: 1px solid #167ccb !important;
-}
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,
+    .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover,
+    .open > .dropdown-toggle.btn-primary {
+        background-color: #ff7701 !important;
+        border: 1px solid #ff7701 !important;
+    }
 
 .btn-success {
   background-color: #10c469 !important;
@@ -1456,10 +1461,13 @@ pre {
 .btn-bordred {
   border-bottom: 3px solid transparent;
 }
-
+.btn-secondary {
+    background-color: #202f43 !important;
+    border-bottom: 2px solid #202f43 !important;
+}
 .btn-bordred.btn-secondary {
-  background-color: #727b84;
-  border-bottom: 2px solid #616971 !important;
+    background-color: #202f43 !important;
+    border-bottom: 2px solid #616971 !important;
 }
 
 .btn-bordred.btn-custom {
@@ -4445,9 +4453,12 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   color: #188ae2;
 }
 
-.wrapper-page .logo span span {
-  color: #10c469;
-}
+    .wrapper-page .logo span span {
+        color: #202f43;
+    }
+    .wrapper-page .logo span {
+        color: #ff7701;
+    }
 
 .panel-pages {
   border-radius: 6px;
@@ -5473,9 +5484,9 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   color: #71b6f9;
 }
 
-#topnav .topbar-main {
-  background: #435966;
-}
+    #topnav .topbar-main {
+        background: #202f43;
+    }
 
 #topnav .topbar-main .logo {
   color: #ffffff !important;
