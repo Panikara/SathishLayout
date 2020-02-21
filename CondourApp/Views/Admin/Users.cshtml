@@ -47,9 +47,9 @@
                             <td>
                                 @*@Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })*@
 
-                                @Html.ActionLink("PlotDetails", "PartialViewDisplay", "Home", new { userName = item.UserName,@class= "btn btn-primary" }, null)|
+                                @Html.ActionLink("PlotDetails", "PartialViewDisplay", "Home", new { userName = item.UserName,@class= "btn btn-info" }, null)|
 
-                                @Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName, @class = "btn btn-primary" }, null)
+                                @Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName, @class = "btn btn-info" }, null)
 
                               
                                 @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@

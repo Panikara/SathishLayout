@@ -7,8 +7,7 @@
 <h2>StatusPage</h2>
 
 <div>
-    <h4>UserInfo</h4>
-    <hr />
+   
     <div class="row">
         <div class="col-12">
             <div class="card-box table-responsive">
@@ -39,7 +38,7 @@
                         <td>@Html.DisplayFor(model => model.Address)</td>
                         <td>@Html.DisplayFor(model => model.Comments)</td>
                         <td>@Html.DisplayFor(model => model.Status)</td>
-                        <td>@Html.ActionLink("Approve", "UpdateStatus", "Admin", new { @class = "btn btn-success",name = Model.UserName,status="Approved"}, null)|@Html.ActionLink("Reject", "UpdateStatus", "Admin", new { name = Model.UserName, status = "Rejected", @class = "btn btn-danger" }, null)</td>
+                        <td>@Html.ActionLink("Approve", "UpdateStatus", "Admin",new { @class = "btn btn-success",name = Model.UserName,status="Approved"},null) @Html.ActionLink("Reject", "UpdateStatus", "Admin",new { name = Model.UserName, status = "Rejected", @class = "btn btn-danger" }, null)</td>
                     </tr>
                 </table>
             </div>

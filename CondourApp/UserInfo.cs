@@ -32,6 +32,7 @@ namespace CondourApp
         public string Status { get; set; }
         public Nullable<int> PlotNumber { get; set; }
         public string PlotNumbers { get; set; }
+        public string MemberShipId { get; set; }
     
         public virtual PlotDetailsInfo PlotDetailsInfo { get; set; }
         public virtual Role Role { get; set; }

@@ -1,66 +1,73 @@
 ﻿@model IEnumerable<CondourApp.PlotDetailsInfo>
 
+<link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-<div class="card-box">
-    <div class="row">
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PlotNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Area)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DocumentNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.YearOfRegistration)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegistrationOffice)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nominee)
-                </th>
-               
-                <th></th>
-            </tr>
+<div>
+    <div class="col-12">
+        <div class="card-box table-responsive">
+            <table class="table table-bordered nowrap display responsive" style="width:100%">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlotNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Area)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.DocumentNumber)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.YearOfRegistration)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RegistrationOffice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nominee)
+                    </th>
 
-            @foreach (var item in Model)
+
+                </tr>
+
+                @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlotNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Area)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DocumentNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.YearOfRegistration)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RegistrationOffice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Nominee)
-                </td>
-                
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlotNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Area)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DocumentNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YearOfRegistration)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RegistrationOffice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nominee)
+                        </td>
 
-            </tr>
-            }
 
-        </table>
+                    </tr>
+                }
+
+            </table>
+        </div>
     </div>
-
 </div>
+@if(@ViewBag.userName == "admin"){
 @Html.ActionLink("Back to List", "GetUsers", "Admin", new { @class = "btn btn-primary" }, null)
+
+}

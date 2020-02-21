@@ -116,6 +116,19 @@ namespace CondourApp.Controllers
         {
             SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
             UserInfo singleUser1 = dbContext.UserInfoes.Where(u => u.UserName == name).FirstOrDefault();
+
+
+            if(status== "Approved")
+            {
+                Random generator = new Random();
+                int r = generator.Next(100000, 999999);
+
+                var memberShipGeneratedId = "MS" + r;
+                singleUser1.MemberShipId = memberShipGeneratedId;
+            }
+         
+
+
             singleUser1.Status = status;
             dbContext.Entry(singleUser1).State = System.Data.Entity.EntityState.Modified;
            

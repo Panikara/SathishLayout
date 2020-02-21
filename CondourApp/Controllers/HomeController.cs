@@ -200,7 +200,7 @@ namespace CondourApp.Controllers
         [HttpPost]
         public ActionResult Register(UserInfo userRegistration, HttpPostedFileBase postedFile, FormCollection coll)
         {
-            //string AREA;
+           
             SathishLayoutEntities1 entities = new SathishLayoutEntities1();
 
 
@@ -213,8 +213,7 @@ namespace CondourApp.Controllers
 
 
 
-            //   PlotCompleteInfo.Add(plotInfo);
-
+        
 
             if (Request.Files.Count > 0)
             {
@@ -225,8 +224,9 @@ namespace CondourApp.Controllers
                 userRegistration.Attachments = filePath;
                 userRegistration.UserId = Guid.NewGuid();
                 userRegistration.Status = "In progress";
-                userRegistration.PlotNumber = null;
-                // userRegistration.PlotNumbers = Request.Form[11];
+
+                //userRegistration.PlotNumber = null;
+               
 
                 List<PlotDetailsInfo> PlotCompleteInfo = new List<PlotDetailsInfo>();
 
@@ -235,7 +235,7 @@ namespace CondourApp.Controllers
 
 
 
-                // foreach (var key in coll.AllKeys)
+              
                 //  {
 
                 var example = Request.Form[11];
@@ -243,11 +243,7 @@ namespace CondourApp.Controllers
                 var split1 = example.Split(',')[0];
 
                 var split2 = example.Split(',')[1];
-                //  string plotgroup= split1 + "," + split2;
-                //  userRegistration.PlotNumbers = plotgroup;
-
-                // if (Request.Form[11] != null)
-                // {
+                
                 string plotnumber = split1;
                 string AREA = Request.Form[12];
                 int Year = Convert.ToInt32(Request.Form[14]);
@@ -264,41 +260,35 @@ namespace CondourApp.Controllers
 
                 PlotCompleteInfo.Add(new PlotDetailsInfo()
                 {
-                    //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
+                   
                     UserName = userRegistration.UserName,
                     PlotNumber = plotnumber,
                     Area = AREA,
                     DocumentNumber = DocNumber,
                     YearOfRegistration = Year,
                     RegistrationOffice = RegistrationOffice,
-                    // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
-                    // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
+                   
                     Nominee = Nominee,
                     PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
                 });
 
                 PlotCompleteInfo.Add(new PlotDetailsInfo()
                 {
-                    //  PlotNumber =Convert.ToInt32(coll["PlotNumber"]),
+                   
                     UserName = userRegistration.UserName,
                     PlotNumber = plotnumber1,
                     Area = AREA1,
                     DocumentNumber = DocNumber1,
                     YearOfRegistration = Year1,
                     RegistrationOffice = RegistrationOffice1,
-                    // DocumentNumber = Convert.ToInt32(coll["DocumentNumber"]),
-                    // YearOfRegistration = Convert.ToInt32(coll["YearOfRegistration"]),
+                  
                     Nominee = Nominee1,
                     PlotDocumentPhoto = Request.Form["PlotDocumentPhoto"]
                 });
-                // }
+            
 
 
-                //  }
-
-
-                //  PlotCompleteInfo.Add(coll[key]);
-                //var value = oCollection[key];
+             
                 // entities.Configuration.ProxyCreationEnabled = false;
 
                 foreach (var plots in PlotCompleteInfo)
@@ -315,27 +305,6 @@ namespace CondourApp.Controllers
 
                 entities.SaveChanges();
 
-                //entities.Configuration.ProxyCreationEnabled = false;
-
-                //entities.UserInfoes.Add(new UserInfo
-                //{
-                //    UserName = userRegistration.UserName,
-                //    Password = userRegistration.Password,
-                //    AadharNumber = userRegistration.AadharNumber,
-                //    PrimaryContactNumber = userRegistration.PrimaryContactNumber,
-                //    Email = userRegistration.Email,
-                //    FatherName = userRegistration.FatherName,
-                //    Venture = userRegistration.Venture,
-                //    PlotNumber = userRegistration.PlotNumber,
-                //    Address = userRegistration.Address,
-                //    Gender = userRegistration.Gender,
-                //    AltContactNumber = userRegistration.AltContactNumber,
-                //    Comments = userRegistration.Comments,
-                //    Attachments = filePath
-
-
-                //});
-                //entities.SaveChanges();
             }
 
 
@@ -352,19 +321,11 @@ namespace CondourApp.Controllers
         {
             SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
             UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
-            //if (userName == singleUser.UserName)
-            //{
-            //    return RedirectToAction("PartialViewDisplay", "Home", new { userName =singleUser.UserName });
 
-            //}
             return View(singleUser);
-            // return View();
+           
         }
-        // [HttpPost]
-        //public ActionResult ShowLoginUserDetails(FormCollection userName)
-        //{
-        //    return View();
-        //}
+      
 
         public ActionResult NextClickGeneratepartialView()
         {
@@ -377,6 +338,7 @@ namespace CondourApp.Controllers
             SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
             //UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
             List<PlotDetailsInfo> Singleplot = dbContext.PlotDetailsInfoes.Where(s => s.UserName ==userName).ToList();
+            ViewBag.userName = userName;
             return View(Singleplot);
         }
     }

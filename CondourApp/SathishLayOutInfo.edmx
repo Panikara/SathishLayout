@@ -47,6 +47,7 @@
           <Property Name="Status" Type="nvarchar" MaxLength="100" />
           <Property Name="PlotNumber" Type="int" />
           <Property Name="PlotNumbers" Type="nvarchar" MaxLength="200" />
+          <Property Name="MemberShipId" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <Association Name="FK_PlotNumbers">
           <End Role="PlotDetailsInfo" Type="Self.PlotDetailsInfo" Multiplicity="0..1" />
@@ -135,6 +136,7 @@
           <Property Name="PlotNumbers" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PlotDetailsInfo" Relationship="Self.FK_PlotNumbers" FromRole="UserInfo" ToRole="PlotDetailsInfo" />
           <NavigationProperty Name="Role" Relationship="Self.FK_RoleId" FromRole="UserInfo" ToRole="Role" />
+          <Property Name="MemberShipId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_PlotNumbers">
           <End Role="PlotDetailsInfo" Type="Self.PlotDetailsInfo" Multiplicity="0..1" />
@@ -204,6 +206,7 @@
           <EntitySetMapping Name="UserInfoes">
             <EntityTypeMapping TypeName="SathishLayoutModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="MemberShipId" ColumnName="MemberShipId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
