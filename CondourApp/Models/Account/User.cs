@@ -5,9 +5,10 @@ using System.Web;
 using CondourApp;
 namespace CondourApp
 {
-    public class UserDetails
+    public class UserData
     {
-       // public UserInfo.
+        public UserInfo UserInfo { set; get; }
+        public List<PlotDetailsInfo> PlotsInfo { set; get; }
     }
    
 }

@@ -776,10 +776,14 @@ select[multiple] {
 }
 
 /* Pagination/ Pager */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background: none !important;
+    border: none !important;
+}
 .pagination > li:first-child > a,
 .pagination > li:first-child > span {
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
 }
 
 .pagination > li:last-child > a,
@@ -797,7 +801,7 @@ select[multiple] {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  background-color: #e4e7ea;
+  background-color: none;
 }
 
 .pagination-split li {

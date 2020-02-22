@@ -257,9 +257,13 @@ namespace CondourApp.Controllers
         public ActionResult UserDetails(string userName)
         {
             SathishLayoutEntities1 dbContext = new SathishLayoutEntities1();
-            UserInfo singleUser = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
-
-            return View(singleUser);
+            UserData userData = new UserData();
+            UserInfo user = dbContext.UserInfoes.Where(u => u.UserName == userName).FirstOrDefault();
+            List<PlotDetailsInfo> plotsInfo = dbContext.PlotDetailsInfoes.Where(s => s.UserName == userName).ToList();
+            userData.UserInfo = user;
+            userData.PlotsInfo = plotsInfo;
+            ViewBag.userName = userName;
+            return View(userData);
            
         }
       

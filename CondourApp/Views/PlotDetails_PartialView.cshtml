@@ -5,15 +5,15 @@
     @Html.AntiForgeryToken()
 
 
-    <h4>PlotDetails</h4>
+    <h4>Plot Details</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="row">
         <div class="col-md-6">
-            <div class="form-group">
-                @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.PlotNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @Html.EditorFor(model => model.PlotNumber, new { htmlAttributes = new { @class = "form-control" } })
 
                     @*<input type="text" class="form-control" name="PlotNumber" required maxlength="3" minlength="3" onkeypress="return isNumberKey(event)" />*@
@@ -22,24 +22,24 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.DocumentNumber, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @Html.EditorFor(model => model.DocumentNumber, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.DocumentNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="form-group">
-                @Html.LabelFor(model => model.YearOfRegistration, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.YearOfRegistration, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @Html.EditorFor(model => model.YearOfRegistration, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.YearOfRegistration, "", new { @class = "text-danger" })
                 </div>
@@ -48,11 +48,12 @@
         </div>
 
         <div class="col-md-6">
-            <div class="form-group">
-                @Html.LabelFor(model => model.RegistrationOffice, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            
+            <div class="form-group row">
+                @Html.LabelFor(model => model.RegistrationOffice, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @*@Html.EditorFor(model => model.RegistrationOffice, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })*@
+                @Html.ValidationMessageFor(model => model.RegistrationOffice, "", new { @class = "text-danger" })*@
 
 
 
@@ -61,16 +62,16 @@
                     new SelectListItem{ Text="Medchal", Value = "Medchal" },
                     new SelectListItem{ Text="Hyderabad", Value = "Hyderabad" },
 
-                   new SelectListItem{ Text="kudlapura", Value = "kudlapura" }}, "Please select",new { } )
+                   new SelectListItem{ Text="kudlapura", Value = "kudlapura" }}, "Please select",new { @class = "control-label" } )
 
                 </div>
             </div>
 
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.PlotDocumentPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.PlotDocumentPhoto, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
 
                     <input type="file" name="postedFile" required />
                     @Html.ValidationMessageFor(model => model.PlotDocumentPhoto, "", new { @class = "text-danger" })
@@ -79,19 +80,19 @@
 
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Nominee, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
+            <div class="form-group row">
+                @Html.LabelFor(model => model.Nominee, htmlAttributes: new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
                     @Html.EditorFor(model => model.Nominee, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Nominee, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group row">
                 <div class="col-md-offset-2 col-md-10">
 
-                    <a id="btnAdd" class="btn btn-primary">+Add PlotDetails</a>
-                   
+                    <a id="btnAdd" class="btn btn-primary">Add Plot</a>
+
 
 
                 </div>

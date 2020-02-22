@@ -3,71 +3,81 @@
 @{
     Layout = null;
 }
+<link href="~/Content/datatable/datatables.min.css" rel="stylesheet" />
 <link href="~/Content/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 <link href="~/Content/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 <link href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
-
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <table class="table table-striped table-bordered nowrap display responsive" style="width:100%">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PlotNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Area)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DocumentNumber)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.YearOfRegistration)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RegistrationOffice)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Nominee)
-                    </th>
-
-
-                </tr>
-
-                @foreach (var item in Model)
-                {
+            <table id="datatable" class="table table-striped table-bordered nowrap display responsive" style="width:100%">
+                <thead>
                     <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PlotNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Area)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DocumentNumber)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.YearOfRegistration)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RegistrationOffice)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Nominee)
-                        </td>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Area)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DocumentNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.YearOfRegistration)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.RegistrationOffice)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PlotDocumentPhoto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nominee)
+                        </th>
 
 
                     </tr>
-                }
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Area)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DocumentNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.YearOfRegistration)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RegistrationOffice)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PlotDocumentPhoto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nominee)
+                            </td>
 
+
+                        </tr>
+                    }
+                </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<script src="~/Content/App1/assets/js/jquery.min.js"></script>
+<script src="~/scripts/datatable/datatables.min.js"></script>
+<script src="~/scripts/datatable/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = $('#datatable').DataTable({
+            "responsive": true,
+            "paging": true
+        });
+
+    });
+</script>
 

@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<CondourApp.UserInfo>
 @{
-    ViewBag.Title = "AddUser";
+    ViewBag.Title = "User";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!-- DataTables -->
@@ -22,12 +22,12 @@
             <table id="datatable" class="table table-striped table-bordered nowrap display responsive" style="width:100%">
                 <thead>
                     <tr>
-                        <th></th>
+                        @*<th></th>*@
                         <th data-class="expand">UserName</th>
                         @*<th>Bank</th>*@
-                        <th data-hide="phone">PlotNumber</th>
+                        <th data-hide="phone">PrimaryContactNumber</th>
                         <th>Address</th>
-                        <th>Comments</th>
+                        <th>AadharNumber</th>
                         <td>Status</td>
                         <th>Actions</th>
                     </tr>
@@ -36,27 +36,31 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td></td>
-                            <td>@item.UserName</td>
-                            @*<td>@item.Bank.BankName</td>*@
-                            <td>@item.PlotNumber</td>
-                            <td>@item.Address</td>
-                            <td>@item.Comments</td>
-                            <td>@item.Status</td>
-                            <td>
-                                @*@Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })*@
+                    <tr>
+                        @*<td></td>*@
+                        <td>@item.UserName</td>
+                        @*<td>@item.Bank.BankName</td>*@
+                        <td>@item.PrimaryContactNumber</td>
+                        <td>@item.Address</td>
+                        <td>@item.AadharNumber</td>
+                        
+                        <td>@item.Status</td>
+                        <td>
+                            @*@Html.ActionLink("Edit", "Editapplication", new { id = item.UserId })*@
 
-                                @Html.ActionLink("PlotDetails", "AdminPlotDetails", "Admin", new { userName = item.UserName,@class= "btn btn-info" },null)|
+                            @Html.ActionLink("PlotDetails", "AdminPlotDetails", "Admin", new { userName = item.UserName }, null)|
 
-                                @Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName, @class = "btn btn-info" }, null)
+                            @*@Html.ActionLink("UpdateStatus", "StatusPage", "Admin", new { name = item.UserName }, null)*@
+                            @Html.ActionLink("Approve", "UpdateStatus", "Admin", new {name = item.UserName, status = "Approved" },
+                           new { onclick = "return confirm('Are you sure wants to update status to Approve');" }) |
+                            @Html.ActionLink("Reject", "UpdateStatus", "Admin", new { name = item.UserName, status = "Rejected"},
+                           new { onclick = "return confirm('Are you sure wants to update status to Reject');" })
 
-                              
-                                @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@
-                                @*@Html.ActionLink("Delete", "DeleteApplicationUser", new { id ="admin1"},
-                                    new { onclick = "return confirm('Are sure wants to delete?');" })*@
-                            </td>
-                        </tr>
+                            @*@Html.ActionLink("Delete", "", new { id = item.ApplicationId })*@
+                            @*@Html.ActionLink("Delete", "DeleteApplicationUser", new { id ="admin1"},
+            new { onclick = "return confirm('Are sure wants to delete?');" })*@
+                        </td>
+                    </tr>
                     }
                 </tbody>
             </table>
