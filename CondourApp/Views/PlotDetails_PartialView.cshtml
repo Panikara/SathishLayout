@@ -91,19 +91,20 @@
             <div class="form-group row">
                 <div class="col-md-offset-2 col-md-10">
 
-                    <a id="btnAdd" class="btn btn-primary">Add Plot</a>
-
-
+                    <a id="btnAdd1" class="btn btn-primary">Add Plot</a>
+              
+                   
 
                 </div>
             </div>
 
         </div>
     </div>
-
+   
+   
 }
 
-
+        
 <div id="nextRenderPartialView">
 
 </div>
@@ -112,22 +113,35 @@
 
 <script src="~/scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
+
+
     $(document).ready(function () {
-        $('#btnAdd').click(function () {
-
-            $('#nextRenderPartialView').load('@Url.Action("NextClickGeneratepartialView", "Home")');
+        $("#btnAdd1").on("click", function () {
+            $.ajax({
+                type: 'GET',
+                url: '/Home/NextClickGeneratepartialView',
+                data: null,
+                success: function (data) {
+                  
             
-            $("#btnRemove").css('visibility', 'visible');
+                  
+                    $("#nextRenderPartialView").append(data);
+                  
+                    $("#nextRenderPartialView").append($('<input type="button" value="Remove" class="btn btn-secondary waves-effect waves-light m-l-5"/>'));
+                   
+
+                }
+            });
+            return false;
         });
-        $("#btnRemove").click(function () {
-
-
-            alert("Are You Sure To Remove")
-            $(this).css('display', 'disabled');
-            $('#nextRenderPartialView').hide();
-
-        })
+        
     });
+   
+    function MyDetails() {
+        alert("Remove")
+    }
+       
+   
 </script>
 <style>
     .next {

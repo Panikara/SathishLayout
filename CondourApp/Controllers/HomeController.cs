@@ -226,8 +226,8 @@ namespace CondourApp.Controllers
 
             }
 
-            if (Request.Files.Count > 0)
-            {
+         //   if (Request.Files.Count > 0)
+          //  {
 
                 string fileName = System.IO.Path.GetFileName(postedFile.FileName);
                 string filePath = "~/UploadImages/" + fileName;
@@ -241,8 +241,8 @@ namespace CondourApp.Controllers
 
                 entities.SaveChanges();
 
-               
-            }
+             
+           // }
 
 
             return RedirectToAction("RegisterSuccess");
